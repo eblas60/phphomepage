@@ -3,9 +3,9 @@
  * [fr]Fichier d'accueil de php homepage
  * [en]File of reception of php homepage
  *
- * @copyright	20/12/2016
+ * @copyright	11/06/2021
  * @since		09/01/2001
- * @version		1.8
+ * @version		1.9
  * @module		homepage
  * @modulegroup	homepage
  * @package		php_homepage
@@ -41,8 +41,8 @@ if (strnatcmp(phpversion(),'4.3.7') >= 0)
 }
 else
 {
-	$tmp_req    = mysql_list_tables($cfg_Base);
-	$tmp_table  = mysql_num_rows($tmp_req);
+	$tmp_req    = mysqli_list_tables($cfg_Base);
+	$tmp_table  = mysqli_num_rows($tmp_req);
 }
 if ($tmp_table == 0) {
     $file = LOCAL_INCLUDE.'homepage.sql';
@@ -71,24 +71,24 @@ if (strnatcmp(phpversion(),'4.3.7') >= 0)
 		mysqli_stmt_close($tmp_req);
 	}
 } else {
-	$req_net           = mysql_query ($query_net);
-	$res_net           = mysql_num_rows($req_net);
+	$req_net           = mysqli_query ($link, $query_net);
+	$res_net           = mysqli_num_rows($req_net);
 }
 //echo '$res_net='.$res_net;
 if ($res_net > 9) {
     $query_delete      = 'DELETE FROM `homepage` WHERE `mise_en_page_id` = 0 AND `rubriques_id` = \'\'';
-    mysql_query ($query_delete);
+    mysqli_query ($link, $query_delete);
     $query_net            = 'SELECT `id` FROM rubriques WHERE actif = 1';
-    $req_net              = mysql_query ($query_net);
-    $res_net              = mysql_num_rows($req_net);
+    $req_net              = mysqli_query ($link, $query_net);
+    $res_net              = mysqli_num_rows($req_net);
     if ($res_net != '') {
         for ($i=0;($i < $res_net);$i++) {
-            $id                = mysql_result($req_net,$i,'id');
+            $id                = mysqli_result($req_net,$i,'id');
             $query_net1            = 'SELECT `id`,`rubriques_id` FROM homepage WHERE rubriques_id like \''.$id.'-%\' OR rubriques_id like \'%-'.$id.'-%\' OR rubriques_id like \'%-'.$id.'\'';
-            $req_net1              = mysql_query ($query_net1);
-            $res_net1              = mysql_num_rows($req_net1);
+            $req_net1              = mysqli_query ($link, $query_net1);
+            $res_net1              = mysqli_num_rows($req_net1);
             if ($res_net1 > 0) {
-                $rubriques_id2       = mysql_result($req_net1,0,'rubriques_id');
+                $rubriques_id2       = mysqli_result($req_net1,0,'rubriques_id');
                 if (substr($rubriques_id2, 0 ,1) != '-') {
                     $rubriques_id2 = '-'.$rubriques_id2;
                 }
@@ -96,30 +96,30 @@ if ($res_net > 9) {
                     $rubriques_id2 = $rubriques_id2.'-';
                 }
                 $rubriques_id2       = str_replace('-'.$id.'-','-',$rubriques_id2);
-                $query_net2          = 'UPDATE homepage SET rubriques_id=\''.$rubriques_id2.'\' WHERE id = \''.mysql_result($req_net1,0,'id').'\'';
-                mysql_query ($query_net2);
+                $query_net2          = 'UPDATE homepage SET rubriques_id=\''.$rubriques_id2.'\' WHERE id = \''.mysqli_result($req_net1,0,'id').'\'';
+                mysqli_query ($link, $query_net2);
             }
             $query_liens         = 'UPDATE liens SET actif = 1 WHERE rubrique_id = '.$id ;
-            mysql_query ($query_liens);    
+            mysqli_query ($link, $query_liens);    
         }
         $query_delete      = 'DELETE FROM `rubriques` WHERE actif = 1';
-        mysql_query ($query_optimize);
+        mysqli_query ($link, $query_optimize);
         unset($query_net,$req_net,$res_net,$id,$query_net1,$req_net1,$res_net1,$rubriques_id2,$query_net2,$query_liens,$query_delete);
     }
     $query_delete      = 'DELETE FROM `liens` WHERE actif = 1';
-    mysql_query ($query_delete);
+    mysqli_query ($link, $query_delete);
     /**
      * [fr] optimisation de la base de données
      */
     $query_optimize    = 'OPTIMIZE TABLE `homepage`';
-    mysql_query ($query_optimize);
-    mysql_query ($query_delete);
+    mysqli_query ($link, $query_optimize);
+    mysqli_query ($link, $query_delete);
     $query_optimize    = 'OPTIMIZE TABLE `rubriques`';
-    mysql_query ($query_optimize);
+    mysqli_query ($link, $query_optimize);
     $query_optimize    = 'OPTIMIZE TABLE `liens`';
-    mysql_query ($query_optimize);
+    mysqli_query ($link, $query_optimize);
     $query_optimize    = 'OPTIMIZE TABLE `mise_en_page`';
-    mysql_query ($query_optimize);
+    mysqli_query ($link, $query_optimize);
     }
 /**
  * [fr] Affichage du formulaire d'entrée

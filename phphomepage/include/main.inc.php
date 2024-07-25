@@ -3,9 +3,9 @@
  * [fr]Fichier d'accueil de création de homepage
  * [en]File of greeting of creation of homepage
  *
- * @copyright	20/12/2016
+ * @copyright	11/06/2021
  * @since		09/01/2001
- * @version		1.8
+ * @version		1.9
  * @module		homepage
  * @modulegroup	homepage
  * @package		php_homepage
@@ -25,7 +25,7 @@ if ($res1 == '' OR $rubriques_id == '') {
 	}
 	else
 	{
-		mysql_query ($query2);
+		mysqli_query ($link, $query2);
 	}
     echo '                    <ol>'."\n";
     echo '                        <li>'.$lang_1."</li>\n";
@@ -76,11 +76,11 @@ if ($res1 == '' OR $rubriques_id == '') {
 		}
 		else
 		{
-			$req2           = mysql_query ($query2);
-			$id_rub         = mysql_result($req2,0,'id');
-			$nom_rubrique   = mysql_result($req2,0,'titre');
-			$place_rubrique = mysql_result($req2,0,'position');
-			$actif          = mysql_result($req2,0,'actif');
+			$req2           = mysqli_query ($link, $query2);
+			$id_rub         = mysqli_result($req2,0,'id');
+			$nom_rubrique   = mysqli_result($req2,0,'titre');
+			$place_rubrique = mysqli_result($req2,0,'position');
+			$actif          = mysqli_result($req2,0,'actif');
 		}
         if ($actif != 1 && $nom_rubrique != '') {
             $rubriqueArray[$place_rubrique][$nom_rubrique] = '                    <div class="col-md-6"><p><strong>'.htmlentities($nom_rubrique, ENT_QUOTES, $cfg_charset).'</strong> <em>'.$lang_Position.' '.$place_rubrique."</em></p>\n                    <blockquote><p>";
@@ -94,8 +94,8 @@ if ($res1 == '' OR $rubriques_id == '') {
 			}
 			else
 			{
-				$req3           = mysql_query ($query3);
-				$res3           = mysql_num_rows($req3);
+				$req3           = mysqli_query ($link, $query3);
+				$res3           = mysqli_num_rows($req3);
 			}
             $j              = 0;
 //			echo '$query3 = '.$query3."<br />\n";
@@ -109,10 +109,10 @@ if ($res1 == '' OR $rubriques_id == '') {
 					$actif        = $dataRow3['actif'];
 				}
 				else {
-					$id_lien        = mysql_result($req3,$j,'id');
-					$nom_lien       = mysql_result($req3,$j,'titre');
-					$url            = mysql_result($req3,$j,'url');
-					$actif          = mysql_result($req3,$j,'actif');
+					$id_lien        = mysqli_result($req3,$j,'id');
+					$nom_lien       = mysqli_result($req3,$j,'titre');
+					$url            = mysqli_result($req3,$j,'url');
+					$actif          = mysqli_result($req3,$j,'actif');
 				}
                 $rubriqueArray[$place_rubrique][$nom_rubrique] .=  '                    <small><a href="'.$url.'" target="_blank" title="'.htmlentities($nom_lien, ENT_QUOTES, $cfg_charset).'">'.htmlentities($nom_lien, ENT_QUOTES, $cfg_charset).'</a><br /> <span class="glyphicon glyphicon-globe"></span>&nbsp;&nbsp;url = '.$url."</small>\n";
                 $j++;

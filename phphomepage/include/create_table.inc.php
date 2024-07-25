@@ -3,9 +3,9 @@
  * [fr]Fichier de création de table fonctionnant pour les bases local
  * [en]File of creation of table functioning for the bases room
  *
- * @copyright	20/12/2016
+ * @copyright	11/06/2021
  * @since		09/01/2001
- * @version		1.8
+ * @version		1.9
  * @module		homepage
  * @modulegroup	homepage
  * @package		php_homepage
@@ -30,14 +30,14 @@ if (!isset($file)) {
 				}
 				else
 				{
-					$result = mysql_query($query);
+					$result = mysqli_query($link, $query);
 					if (!$result) {
-						die('                        <p class="text-danger">' . $lang_error_query . mysql_error()."</p>\n");
+						die('                        <p class="text-danger">' . $lang_error_query . mysqli_error()."</p>\n");
 					}
 				}
             }
         }
-        //mysql_free_result();
+        //mysqli_free_result();
     } else {
         echo '                        <p class="text-danger">' . $lang_Fichier.' "<b>'.$file.'</b>" '.$lang_Introuvable.'</p>'."\n";
     }

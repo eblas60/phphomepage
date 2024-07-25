@@ -5,6 +5,10 @@
  * # Fix
  */
 
+11-juin-2021 : v1.9
+ # Corrections de quelques bugs
+ + Mise à jour Boostrap 5
+
 20-décembre-2016 : v1.8
  + Ajout de Bootstrap (amélioration graphique de l'admin)
  + Ajout d'une classe BDD pour être compatible PHP > 5.3

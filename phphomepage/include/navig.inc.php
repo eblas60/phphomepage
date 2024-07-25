@@ -3,9 +3,9 @@
  * [fr]Fichier de navigation pour un ajout de homepage
  * [en]File of navigation for an addition of homepage
  *
- * @copyright	20/12/2016
+ * @copyright	11/06/2021
  * @since		09/01/2001
- * @version		1.8
+ * @version		1.9
  * @module		homepage
  * @modulegroup	homepage
  * @package		php_homepage
@@ -25,8 +25,8 @@ if (strnatcmp(phpversion(),'4.3.7') >= 0)
 }
 else
 {
-	$req1	= mysql_query ($query1);
-	$res1	= mysql_num_rows($req1);
+	$req1	= mysqli_query ($link, $query1);
+	$res1	= mysqli_num_rows($req1);
 }
 if ($res1 != '') {
 	if (strnatcmp(phpversion(),'4.3.7') >= 0)
@@ -36,8 +36,8 @@ if ($res1 != '') {
 	}
 	else
 	{
-		$rubriques_id		= mysql_result($req1,0,'rubriques_id');
-		$mise_en_page_id	= mysql_result($req1,0,'mise_en_page_id');
+		$rubriques_id		= mysqli_result($req1,0,'rubriques_id');
+		$mise_en_page_id	= mysqli_result($req1,0,'mise_en_page_id');
 	}
 	// mysqli
 	/*if (strlen(trim($query))) {
@@ -49,9 +49,9 @@ if ($res1 != '') {
 		}
 		else
 		{
-			$result = mysql_query($query);
+			$result = mysqli_query($link, $query);
 			if (!$result) {
-				die('						<p class="text-danger">' . $lang_error_query . mysql_error()."</p>\n");
+				die('						<p class="text-danger">' . $lang_error_query . mysqli_error()."</p>\n");
 			}
 		}
 	}//*/
@@ -73,7 +73,7 @@ echo '										<form role="form" class="form" method="post" action="'.$_SERVER[
 echo '											<input type="hidden" name="homepage" value="'.$homepage.'" />'."\n";
 echo '											<input type="hidden" name="page" value="rubrique" />'."\n";
 if ($res1 == '' OR $rubriques_id == '') {
-	echo '							<button type="submit"  class="list-group-item'; 
+	echo '							<button type="submit" class="list-group-item'; 
 	if ($page == 'rubrique') {
 		echo ' active';
 	}

@@ -3,9 +3,9 @@
  * [fr]Fichier de mise en page de la homepage
  * [en]File of formatting of the homepage
  *
- * @copyright	20/12/2016
+ * @copyright	11/06/2021
  * @since		09/01/2001
- * @version		1.8
+ * @version		1.9
  * @module		homepage
  * @modulegroup	homepage
  * @package		php_homepage
@@ -84,12 +84,12 @@ if ($mise_en_page_id != 0 && $modif == 1) {
 			$mysqli->query("SET NAMES 'utf8'");
 			$result3 = $mysqli->query($query3);
 		} else
-			$result3 = mysql_query($query3);
+			$result3 = mysqli_query($link, $query3);
 		if (!$result3) {
 			if (strnatcmp(phpversion(),'4.3.7') >= 0)
 				$error = $mysqli->error;
 			else
-				$error = mysql_error();
+				$error = mysqli_error();
 			die('						<p class="text-danger">' . $lang_error_query . $error."</p>\n");
 		}
 		$query4		= "UPDATE `homepage` SET `mise_en_page_id`='".$mise_en_page_id."' WHERE `nom`='".$homepage."'";
@@ -97,12 +97,12 @@ if ($mise_en_page_id != 0 && $modif == 1) {
 			$mysqli->query("SET NAMES 'utf8'");
 			$result4 = $mysqli->query($query4);
 		} else
-			$result4 = mysql_query($query4);
+			$result4 = mysqli_query($link, $query4);
 		if (!$result4) {
 			if (strnatcmp(phpversion(),'4.3.7') >= 0)
 				$error = $mysqli->error;
 			else
-				$error = mysql_error();
+				$error = mysqli_error();
 			die('						<p class="text-danger">' . $lang_error_query . $error."</p>\n");
 		}
 		$modif		= 2;
@@ -120,18 +120,18 @@ if ($mise_en_page_id != 0 && $modif == 1) {
 			$mysqli->query("SET NAMES 'utf8'");
 			$result5 = $mysqli->query($query5);
 		} else
-			$result5 = mysql_query($query5);
+			$result5 = mysqli_query($link, $query5);
 		if (!$result5) {
 			if (strnatcmp(phpversion(),'4.3.7') >= 0)
 				$error = $mysqli->error;
 			else
-				$error = mysql_error();
+				$error = mysqli_error();
 			die('						<p class="text-danger">' . $lang_error_query . $error."</p>\n");
 		} else {
 			if (strnatcmp(phpversion(),'4.3.7') >= 0)
 				$mise_en_page_id = $mysqli->insert_id;
 			else
-				$mise_en_page_id = mysql_insert_id();
+				$mise_en_page_id = mysqli_insert_id();
 		}
 		$id = $mise_en_page_id;
 		$query6		= "UPDATE `homepage` SET `mise_en_page_id`='".$mise_en_page_id."' WHERE `nom`='".$homepage."'";
@@ -139,12 +139,12 @@ if ($mise_en_page_id != 0 && $modif == 1) {
 			$mysqli->query("SET NAMES 'utf8'");
 			$result6 = $mysqli->query($query6);
 		} else
-			$result6 = mysql_query($query6);
+			$result6 = mysqli_query($link, $query6);
 		if (!$result6) {
 			if (strnatcmp(phpversion(),'4.3.7') >= 0)
 				$error = $mysqli->error;
 			else
-				$error = mysql_error();
+				$error = mysqli_error();
 			die('						<p class="text-danger">' . $lang_error_query . $error."</p>\n");
 		}
 	}
@@ -172,16 +172,16 @@ if ($mise_en_page_id != 0) {
 	}
 	else
 	{
-		$req2			= mysql_query ($query2);
-		$id				= mysql_result($req2,0,'id');
-		$fond			= '#'.mysql_result($req2,0,'fond');
-		$couleur_titre	= '#'.mysql_result($req2,0,'couleur_titre');
-		$taille_titre	= mysql_result($req2,0,'taille_titre');
-		$couleur_lien	= '#'.mysql_result($req2,0,'couleur_lien');
-		$taille_lien	= mysql_result($req2,0,'taille_lien');
-		$police			= mysql_result($req2,0,'police');
-		$titre			= mysql_result($req2,0,'titre');
-		$target			= mysql_result($req2,0,'target');
+		$req2			= mysqli_query ($link, $query2);
+		$id				= mysqli_result($req2,0,'id');
+		$fond			= '#'.mysqli_result($req2,0,'fond');
+		$couleur_titre	= '#'.mysqli_result($req2,0,'couleur_titre');
+		$taille_titre	= mysqli_result($req2,0,'taille_titre');
+		$couleur_lien	= '#'.mysqli_result($req2,0,'couleur_lien');
+		$taille_lien	= mysqli_result($req2,0,'taille_lien');
+		$police			= mysqli_result($req2,0,'police');
+		$titre			= mysqli_result($req2,0,'titre');
+		$target			= mysqli_result($req2,0,'target');
 	}
 } else {
 	$fond			= '#FFFFFF';
@@ -219,14 +219,14 @@ echo '												<div class="form-group">'."\n";
 echo '													<label class="control-label">'.$lang_CoulFond.'</label>'."\n";
 echo '													<div id="colorpicker-fond" class="controls input-group colorpicker-component">'."\n";
 echo '														<input type="text" class="form-control" id="fond" placeholder="#FFFFFF" name="fond" value="'.$fond.'" />
-															<div class="input-group-addon"><i></i></div>'."\n";
+															<div class="input-group-text input-group-addon"><i></i></div>'."\n";
 echo '													</div>'."\n";
 echo '												</div>'."\n";
 echo '												<div class="form-group">'."\n";
 echo '													<label class="control-label">'.$lang_CoulRub.'</label>'."\n";
 echo '													<div id="colorpicker-lien" class="controls input-group colorpicker-component">'."\n";
 echo '														<input type="text" class="form-control" id="couleur_lien" placeholder="#000000" name="couleur_lien" value="'.$couleur_lien.'" />
-															<div class="input-group-addon"><i></i></div>'."\n";
+															<div class="input-group-text input-group-addon"><i></i></div>'."\n";
 echo '													</div>'."\n";
 echo '												</div>'."\n";
 echo '												<div class="form-group">'."\n";
@@ -275,7 +275,7 @@ echo '												<div class="form-group">'."\n";
 echo '													<label class="control-label" for="creer_nom">'.$lang_CoulRub.'</label>'."\n";
 echo '													<div id="colorpicker-titre" class="controls input-group colorpicker-component">'."\n";
 echo '														<input type="text" class="form-control" id="couleur_titre" placeholder="#0000FF" name="couleur_titre" value="'.$couleur_titre.'" />
-															<div class="input-group-addon"><i></i></div>'."\n";
+															<div class="input-group-text input-group-addon"><i></i></div>'."\n";
 echo '													</div>'."\n";
 echo '												</div>'."\n";
 echo '												<div class="form-group">'."\n";

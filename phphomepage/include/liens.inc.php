@@ -63,12 +63,12 @@ if (isset($sup_lien) OR isset($_POST['sup_lien'])) {
 		if (strnatcmp(phpversion(),'4.3.7') >= 0)
 			$result2 = $mysqli->query($query2);
 		else
-			$result2 = mysql_query($query2);
+			$result2 = mysqli_query($link, $query2);
 		if (!$result2) {
 			if (strnatcmp(phpversion(),'4.3.7') >= 0)
 				$error = $mysqli->error;
 			else
-				$error = mysql_error();
+				$error = mysqli_error();
 			die('						<p class="text-danger">' . $lang_error_query . $error."</p>\n");
 		}
 	}
@@ -92,12 +92,12 @@ if (isset($titre) || isset($_POST['titre'])) {
 			$mysqli->query("SET NAMES 'utf8'");
 			$result3 = $mysqli->query($query3);
 		} else
-			$result3 = mysql_query($query3);
+			$result3 = mysqli_query($link, $query3);
 		if (!$result3) {
 			if (strnatcmp(phpversion(),'4.3.7') >= 0)
 				$error = $mysqli->error;
 			else
-				$error = mysql_error();
+				$error = mysqli_error();
 			die('						<p class="text-danger">' . $lang_error_query . $error."</p>\n");
 		}
 		$titre = '';
@@ -127,12 +127,12 @@ if (isset($choix_lien) || isset($_POST['choix_lien'])) {
 			$mysqli->query("SET NAMES 'utf8'");
 			$result5 = $mysqli->query($query5);
 		} else
-			$result5 = mysql_query($query5);
+			$result5 = mysqli_query($link, $query5);
 		if (!$result5) {
 			if (strnatcmp(phpversion(),'4.3.7') >= 0)
 				$error = $mysqli->error;
 			else
-				$error = mysql_error();
+				$error = mysqli_error();
 			die('						<p class="text-danger">' . $lang_error_query . $error."</p>\n");
 		}
 	}
@@ -239,7 +239,7 @@ echo '													</div>'."\n";
 echo '												</div>'."\n";
 echo '												<div class="form-group">'."\n";
 echo '													<div class="controls">'."\n";
-echo '														<button type="submit" class="btn btn-success">'.$lang_Creer.' <span class="glyphicon glyphicon-chevron-right icon-white"></span></button>'."\n";
+echo '														<button type="submit" class="btn btn-success">'.$lang_Modifier.' <span class="glyphicon glyphicon-chevron-right icon-white"></span></button>'."\n";
 echo '													</div>'."\n";
 echo '												</div>'."\n";
 echo '											</fieldset>'."\n";

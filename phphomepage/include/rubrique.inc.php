@@ -3,9 +3,9 @@
  * [fr]Fichier d'ajout de rubrique de la homepage
  * [en]File of addition of headings of the homepage
  *
- * @copyright	20/12/2016
+ * @copyright	11/06/2021
  * @since		09/01/2001
- * @version		1.8
+ * @version		1.9
  * @module		homepage
  * @modulegroup	homepage
  * @package		php_homepage
@@ -27,7 +27,6 @@ if (empty($creer_nom) && !empty($_POST['creer_nom'])) {
 }
 if (empty($position) && !empty($_POST['position']) && is_int(intval($_POST['position'])) == true && intval($_POST['position']) > 0) {
 	$position = $_POST['position'];
-								print_r($_POST);
 }
 if (empty($sup_rubrique) && !empty($_POST['sup_rubrique'])) {
 	$sup_rubrique = $_POST['sup_rubrique'];
@@ -60,18 +59,18 @@ if (isset($creer_nom) || isset($_POST['creer_nom'])) {
 			$mysqli->query("SET NAMES 'utf8'");
 			$result2 = $mysqli->query($query2);
 		} else
-			$result2 = mysql_query($query2);
+			$result2 = mysqli_query($link, $query2);
 		if (!$result2) {
 			if (strnatcmp(phpversion(),'4.3.7') >= 0)
 				$error = $mysqli->error;
 			else
-				$error = mysql_error();
+				$error = mysqli_error();
 			die('						<p class="text-danger">' . $lang_error_query . $error."</p>\n");
 		} else {
 			if (strnatcmp(phpversion(),'4.3.7') >= 0)
 				$new_rubrique_id = $mysqli->insert_id;
 			else
-				$new_rubrique_id = mysql_insert_id();
+				$new_rubrique_id = mysqli_insert_id();
 		}
 //echo __LINE__ . ' debug rubrique: <br>$new_rubrique_id = '.$new_rubrique_id.'<br>';
 		if ($rubriques_id != '') {
@@ -90,13 +89,13 @@ if (isset($creer_nom) || isset($_POST['creer_nom'])) {
 		if (strnatcmp(phpversion(),'4.3.7') >= 0)
 			$result2a = $mysqli->query($query2a);
 		else
-			$result2a = mysql_query($query2a);
+			$result2a = mysqli_query($link, $query2a);
 
 		if (!$result2a) {
 			if (strnatcmp(phpversion(),'4.3.7') >= 0)
 				$error = $mysqli->error;
 			else
-				$error = mysql_error();
+				$error = mysqli_error();
 			die('						<p class="text-danger">' . $lang_error_query . $error."</p>\n");
 		}
 		$rubriques_id = $new_rubriques_id;
@@ -115,12 +114,12 @@ if (isset($sup_rubrique) || isset($_POST['sup_rubrique'])) {
 		if (strnatcmp(phpversion(),'4.3.7') >= 0)
 			$result3 = $mysqli->query($query3);
 		else
-			$result3 = mysql_query($query3);
+			$result3 = mysqli_query($link, $query3);
 		if (!$result3) {
 			if (strnatcmp(phpversion(),'4.3.7') >= 0)
 				$error = $mysqli->error;
 			else
-				$error = mysql_error();
+				$error = mysqli_error();
 			die('						<p class="text-danger">' . $lang_error_query . $error."</p>\n");
 		}
 		$query4			= 'UPDATE `liens` SET `actif` = 1 WHERE `rubrique_id` = '.$sup_rubrique;
@@ -128,12 +127,12 @@ if (isset($sup_rubrique) || isset($_POST['sup_rubrique'])) {
 		if (strnatcmp(phpversion(),'4.3.7') >= 0)
 			$result4 = $mysqli->query($query4);
 		else
-			$result4 = mysql_query($query4);
+			$result4 = mysqli_query($link, $query4);
 		if (!$result4) {
 			if (strnatcmp(phpversion(),'4.3.7') >= 0)
 				$error = $mysqli->error;
 			else
-				$error = mysql_error();
+				$error = mysqli_error();
 			die('						<p class="text-danger">' . $lang_error_query . $error."</p>\n");
 		}
 	}
@@ -160,12 +159,12 @@ if (isset($choix_rubrique) || isset($_POST['choix_rubrique'])) {
 			$result5 = $mysqli->query($query5);
 		}
 		else
-			$result5 = mysql_query($query5);
+			$result5 = mysqli_query($link, $query5);
 		if (!$result5) {
 			if (strnatcmp(phpversion(),'4.3.7') >= 0)
 				$error = $mysqli->error;
 			else
-				$error = mysql_error();
+				$error = mysqli_error();
 			die('						<p class="text-danger">' . $lang_error_query . $error."</p>\n");
 		}
 	}

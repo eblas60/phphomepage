@@ -3,9 +3,9 @@
  * [fr]Votre page de démarrage
  * [en]Your homepage
  *
- * @copyright	20/12/2016
+ * @copyright	11/06/2021
  * @since		09/01/2001
- * @version		1.8
+ * @version		1.9
  * @module		homepage
  * @modulegroup	homepage
  * @package		php_homepage
@@ -61,8 +61,8 @@ if (strnatcmp(phpversion(),'4.3.7') >= 0)
 }
 else
 {
-	$req1			= mysql_query ($query1);
-	$mise_en_page_id = mysql_result($req1,0,'id');
+	$req1			= mysqli_query ($link, $query1);
+	$mise_en_page_id = mysqli_result($req1,0,'id');
 }
 echo '<!DOCTYPE html>'."\n";
 echo '<html>'."\n";
@@ -75,6 +75,17 @@ echo '		<link href="assets/css/bootstrap.min.css" rel="stylesheet" />'."\n";
 echo '		<link href="assets/css/bootstrap-theme.min.css" rel="stylesheet">'."\n";
 if (isset($error)) {"\n";
 	echo '		<link href="include/style.css" rel="stylesheet" />'."\n";
+	echo '<script>
+  (function(i,s,o,g,r,a,m){i[\'GoogleAnalyticsObject\']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,\'script\',\'//www.google-analytics.com/analytics.js\',\'ga\');
+
+  ga(\'create\', \'UA-240046-1\', \'auto\');
+  ga(\'send\', \'pageview\');
+
+</script>
+<!-- Universal Google Analytics Plugin by PB Web Development -->'."\n";
 	echo '	</head>'."\n";
 	echo '	<body>'."\n";
 	echo '		<div class="col-md-12 text-center"><br />'."\n";
@@ -109,15 +120,15 @@ if (isset($error)) {"\n";
 	}
 	else
 	{
-		$req2			= mysql_query ($query2);
-		$fond			= mysql_result($req2,0,'fond');
-		$couleur_titre	= mysql_result($req2,0,'couleur_titre');
-		$taille_titre	= mysql_result($req2,0,'taille_titre');
-		$couleur_lien	= mysql_result($req2,0,'couleur_lien');
-		$taille_lien	= mysql_result($req2,0,'taille_lien');
-		$police			= mysql_result($req2,0,'police');
-		$titre			= mysql_result($req2,0,'titre');
-		$target			= mysql_result($req2,0,'target');
+		$req2			= mysqli_query ($link, $query2);
+		$fond			= mysqli_result($req2,0,'fond');
+		$couleur_titre	= mysqli_result($req2,0,'couleur_titre');
+		$taille_titre	= mysqli_result($req2,0,'taille_titre');
+		$couleur_lien	= mysqli_result($req2,0,'couleur_lien');
+		$taille_lien	= mysqli_result($req2,0,'taille_lien');
+		$police			= mysqli_result($req2,0,'police');
+		$titre			= mysqli_result($req2,0,'titre');
+		$target			= mysqli_result($req2,0,'target');
 	}
 	if ($taille_titre == 1) {
 		$taille_titre = '10px';

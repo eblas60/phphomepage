@@ -3,9 +3,9 @@
  * [fr]Fichier de clôture de connection à la base
  * [en]File closing database conexion
  *
- * @copyright	20/12/2016
+ * @copyright	11/06/2021
  * @since		09/01/2001
- * @version		1.8
+ * @version		1.9
  * @module		homepage
  * @modulegroup	homepage
  * @package		php_homepage
@@ -20,5 +20,5 @@ if (strnatcmp(phpversion(),'4.3.7') >= 0)
 }
 else
 {
-	mysql_close();
+	mysqli_close();
 }

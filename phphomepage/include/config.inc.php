@@ -3,9 +3,9 @@
  * [fr]Fichier de configuration
  * [en]File configuration
  *
- * @copyright    22/03/2004
+ * @copyright    05/08/2005
  * @since	     09/01/2001
- * @version      1.6
+ * @version      1.6a
  * @module       config
  * @modulegroup  include
  * @package      php_homepage
@@ -33,7 +33,7 @@ else
 
 // Environnement
 // Environment
-$cfg_Version     = 'Php Homepage v1.6';
+$cfg_Version     = 'Php Homepage v1.6a';
 
 // Couleur de fond de cellule pour les tableaux
 // Background color of cell for the table

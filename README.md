@@ -2,7 +2,7 @@
 
 Php Homepage est un outil qui vous permet de rassembler sur votre page de démarrage tous les liens qui vous sont utiles.
 
-[Le tester](https://www.phphomepage.net/phphomepage/fr/ "Le tester") - [](https://www.phphomepage.net/phphomepage/fr/homepage.php?homepage=goldo "Voir un exemple") - [Le télécharger](https://www.phphomepage.net/images/downloads/phphomepage/phphomepage-v1.9.zip "Le télécharger")
+[Le tester](https://www.phphomepage.net/phphomepage/fr/ "Le tester") - [Voir un exemple](https://www.phphomepage.net/phphomepage/fr/homepage.php?homepage=goldo "Voir un exemple") - [Le télécharger](https://www.phphomepage.net/images/downloads/phphomepage/phphomepage-v1.9.zip "Le télécharger")
 
 Php Homepage est l'outil idéal pour les webmasters qui doivent toujours jongler avec une multitude de sites ! ;-))
 
@@ -28,7 +28,7 @@ Php Homepage est l'outil idéal pour les webmasters qui doivent toujours jongler
 
 Php Homepage is a PHP/MySQL application that allows you to generate homepages with links for Internet navigation. It features customizable headings and layouts, and link management facilities. Available in French and English
 
-[Test it](https://www.phphomepage.net/phphomepage/en/ "Test it") - [View an example](https://www.phphomepage.net/phphomepage/en/homepage.php?homepage=goldo "View an example") - [Download it]https://www.phphomepage.net/images/downloads/phphomepage/phphomepage-v1.9.zip "Download it")
+[Test it](https://www.phphomepage.net/phphomepage/en/ "Test it") - [View an example](https://www.phphomepage.net/phphomepage/en/homepage.php?homepage=goldo "View an example") - [Download it](https://www.phphomepage.net/images/downloads/phphomepage/phphomepage-v1.9.zip "Download it")
 
 
 Php homepage is the ideal tool for the webmasters which must always juggle with a multitude of sites! ;-))

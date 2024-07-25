@@ -1,32 +1,19 @@
 <?
-// Nom : Php_Homepage
-// Version : 1.3
-// Date : 11/01/2001
-// Auteur : Eric BLAS
-// email : ericb@newsinvest.fr
-// Description : Fichier d'accueil de création de homepage
-//               File of greeting of creation of homepage
+// Nom           : Php_Homepage
+// Version       : 1.4
+// Date          : 03/08/2001
+// Auteur        : Eric BLAS
+// email         : phphomepage@free.fr
+// Description   : Fichier d'accueil de création de homepage
+//                 File of greeting of creation of homepage
 
-require("./config.inc.php3");
-require("./lang_$cfgLang.inc.php3");
-?>
- <html>
- <head>
- <title>
-<?print $cfgVersion;?>
- </title>
- <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
- </head>
-<?
 $query1            = "SELECT * FROM homepage WHERE nom = '$homepage'";
 $req1              = mysql_query ($query1);
 $res1              = mysql_numrows($req1);
 if ($res1 != "")
  {$rubriques_id      = mysql_result($req1,0,"rubriques_id");
  }
-?>
- <body bgcolor="#<?print $cfgFondIndex?>" link="#<?print $cfglienIndex?>" vlink="#<?print $cfglienIndex?>" alink="#<?print $cfglienIndex?>">
-<?
+
 if ($res1 == "" OR $rubriques_id == "")
   {?>
 <?$query1 = "INSERT INTO homepage VALUES('','$homepage','','')";
@@ -72,5 +59,3 @@ else
    };
  }
 ?>
- </body>
- </html>

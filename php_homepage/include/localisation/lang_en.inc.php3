@@ -1,12 +1,12 @@
 <?
-// Nom : Php_Homepage
-// Version : 1.3
-// Date : 11/01/2001
-// Auteur : Eric BLAS
-// email : ericb@newsinvest.fr
-// Description : File of English language
-?>
-<?
+// Nom           : Php_Homepage
+// Version       : 1.4
+// Date          : 03/08/2001
+// Auteur        : Eric BLAS
+// email         : phphomepage@free.fr 
+// Description   : File of English language
+
+$langConnexBase              = "Problem with the database<br>\n Try later";
 $langErrorNomFichier         = "It is necessary to give a name of fichier.<br>For example:";
 $langFichier                 = "The file";
 $langIntrouvable             = "is untraceable.";

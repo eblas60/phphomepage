@@ -38,10 +38,10 @@ This application makes it possible to generate a homepage for the Internet navig
 Install
 -------
 
-1.Créer a database
+1.Create a database
 2.Configure the file " config.inc.php3 " with the parameters of your table
 3.Open the " index.php3 " page in a navigator
-4.Les tables sont générée lors du premier lancement
+4.Table are generate on the first print of the index.php3
 5.you can amuse yourself with the application
 
 Use

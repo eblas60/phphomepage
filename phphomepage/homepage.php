@@ -3,20 +3,18 @@
  * [fr]Votre page de démarrage
  * [en]Your homepage
  *
- * @copyright    20/03/2004
- * @since	     09/01/2001
- * @version      1.6
+ * @copyright    12/03/2012
+ * @since	 09/01/2001
+ * @version      1.7
  * @module       homepage
  * @modulegroup  homepage
  * @package      php_homepage
- * @access	     public
+ * @access	 public
  * @author       Eric BLAS <webmaster@phphomepage.net>
  */
 if (empty($homepage)){
-    if (!empty($_GET['homepage'])) {
-        $homepage = $_GET['homepage'];
-    } elseif (!empty($_POST['homepage'])){
-        $homepage = $_POST['homepage'];
+    if (!empty($_REQUEST['homepage'])) {
+        $homepage = $_REQUEST['homepage'];
     }
 }
 if (empty($homepage)){
@@ -60,24 +58,55 @@ $titre           = mysql_result($req2,0,'titre');
 $target          = mysql_result($req2,0,'target');
 $font_rubrique   = '<font face="'.$police.'" size="'.$taille_titre.'" color="#'.$couleur_titre.'">';
 $font_lien       = '<font face="'.$police.'" size="'.$taille_lien.'" color="#'.$couleur_lien.'">';
-echo '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-                      "http://www.w3.org/TR/html4/loose.dtd">'."\n";
-echo '<HTML>'."\n";
-echo '    <HEAD>'."\n";
-echo '        <TITLE>';
+echo '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">'."\n";
+echo '<html>'."\n";
+echo '    <head>'."\n";
+echo '        <title>';
 if ($titre != '') {
     echo $titre;
 } else {
     echo $cfg_Version;
    }
-echo '</TITLE>'."\n";
-echo '        <META http-equiv="Content-Type" content="text/html; charset='.$cfg_charset.'">'."\n";
-echo '    </HEAD>'."\n";
-echo '    <BODY bgcolor="#'.$fond.'" link="#'.$couleur_lien.'" vlink="#'.$couleur_lien.'" alink="#'.$couleur_lien.'">'."\n";
-echo '        <table width="100%" border="0" cellspacing="5" cellpadding="0">'."\n";
+echo '</title>'."\n";
+echo '        <meta http-equiv="Content-Type" content="text/html; charset='.$cfg_charset.'" />'."\n";
+echo '        <meta name="robots" content="noindex, nofollow" />'."\n";
+echo '        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />'."\n";
+echo '        <style type="text/css">'."\n";
+echo '            <!--'."\n";
+echo '                body {'."\n";
+echo '                    background-color: #'.$fond.";\n";
+echo '                }'."\n";
+echo '                a, a:focus, a:hover {'."\n";
+echo '                    display: block;'."\n";
+echo '                    color: #'.$couleur_lien.";\n";
+echo '                    text-decoration: none;'."\n";
+echo '                }'."\n";
+echo '                a.inline {'."\n";
+echo '                    display: inline-block;'."\n";
+echo '                }'."\n";
+echo '                a:hover {'."\n";
+echo '                    text-decoration: underline;'."\n";
+echo '                }'."\n";
+echo '                table {'."\n";
+echo '                    width: 100%;'."\n";
+echo '                }'."\n";
+echo '                tr {'."\n";
+echo '                    margin: 5px;'."\n";
+echo '                    vertical-align: top;'."\n";
+echo '                }'."\n";
+echo '                td {'."\n";
+echo '                    color: #'.$couleur_lien.";\n";
+echo '                    vertical-align: top;'."\n";
+echo '                }'."\n";
+echo '            -->'."\n";
+echo '          </style>'."\n";
+echo '    </head>'."\n";
+echo '    <body>'."\n";
+echo '        <table>'."\n";
 $k = 0;
 while($cfg_NbrLignes != $k) {
-    echo '            <tr valign="top">'."\n";
+    echo '            <tr>'."\n";
     $case    = 1 + ($k * $cfg_NbrColonnes);
     $largeur = 100 / $cfg_NbrColonnes;
     $l       = 0;
@@ -92,6 +121,6 @@ while($cfg_NbrLignes != $k) {
     $k++;
 }
 echo '        </table>'."\n";
-echo '        <br>'."\n";
+echo '        <br />'."\n";
 echo '        <p align="right"><font face="'.$police.'" color="#'.$couleur_titre.'" size="1">'.$homepage.' - '.$lang_Realiser.' '.$cfg_Version.$cfg_font_fin.'</p>';
 require_once(LOCAL_INCLUDE.'stop_html.inc.php') ?>

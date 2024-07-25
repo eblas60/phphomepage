@@ -5,6 +5,17 @@
  * # Fix
  */
 
+04-janvier-2013 v 1.7
+ # Petite optimisation pour les smartphones et tablettes tactile
+ # Correction du code source HTML5 pour le rendre W3C
+ + Ajout de balise Robot noindex
+ + Modification du tri d'affichage des catégories pour qu'il soit dans l'ordre alphabétique
+ + Ajout de la gestion de lien double sur une même ligne exemple (le début du 2ème lien doit être identique au précédent) :
+   lien 1 = Mon site web
+   lien 2 = Mon site web - Administration (ou autre lien)
+   donne à l'affichage
+   <a href="http://lien-1/">Mon site web</a> - <a href="http://lien-2/">Administration (ou autre lien)</a>
+
 21-septembre-2005 : v1.6a
  # Correction de quelques bugs
 

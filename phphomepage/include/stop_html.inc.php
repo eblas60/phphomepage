@@ -3,13 +3,13 @@
  * [fr]Fichier qui génére le code de fin de page HTML commun à tous les fichiers
  * [en]File which génére the code of end of page HTML common to all the files
  *
- * @copyright    05/08/2005
- * @since	     09/08/2001
- * @version      1.6a
+ * @copyright    12/03/2012
+ * @since	 09/08/2001
+ * @version      1.7
  * @module       star_html
  * @modulegroup  include
  * @package      php_homepage
- * @access	     public
+ * @access	 public
  * @author       Eric BLAS <webmaster@phphomepage.net>
  */
 /**
@@ -31,6 +31,6 @@ if (strstr(LOCAL_INCLUDE, 'http')) {
  */
 require_once(LOCAL_INCLUDE.'close.inc.php');
 echo "\n";
-echo '    </BODY>'."\n";
-echo '</HTML>'."\n";
+echo '    </body>'."\n";
+echo '</html>'."\n";
 ?>

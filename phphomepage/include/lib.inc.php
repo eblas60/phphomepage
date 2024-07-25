@@ -3,20 +3,20 @@
  * [fr]Fichier librairie de fonctions
  * [en]File of functions' library
  *
- * @copyright    22/03/2004
- * @since	     09/08/2001
- * @version      1.6
+ * @copyright    03/01/2013
+ * @since	 09/08/2001
+ * @version      1.7
  * @module       lib
  * @modulegroup  include
  * @package      php_homepage
- * @access	     public
+ * @access	 public
  * @author       Eric BLAS <webmaster@phphomepage.net>
  */
 /**
  * [fr]Fonction listant les rubriques de la base
  *
  * @access	public
- * @version 1.6
+ * @version 	1.6
  * @param	string  [fr]0 ou 1 pour utilisation du paramètre selected dans un tag option
  * @return	string  [fr]Liste <option> des rubriques de la homepage
  */
@@ -36,7 +36,7 @@ function choix_rubrique($select = 0) {
         $id           = mysql_result($req1,0,'id');
         $titre        = mysql_result($req1,0,'titre');
         $actif        = mysql_result($req1,0,'actif');
-        if ($actif != 1) {
+        if ($actif != 1 && $titre != '') {
             echo '                            <option value="'.$id.'"';
             if (($choix_rubrique == $id  AND $select == 1) OR ($rubrique == $id  AND $select == 0) OR ($new_rubrique == $id  AND $select == 0)) {
                 echo 'selected';
@@ -117,7 +117,7 @@ function eclat_couleur($couleur,$ident) {
  * [fr]fonction générant autant de case que configuré dans le fichier config.inc.php et les remplis
  *
  * @access	public
- * @version 1.6
+ * @version 	1.7
  * @param	string  [fr]numéro de la case
  * @return	string  [fr]Affichage du contenu de la case
  */
@@ -134,33 +134,117 @@ function create_case($case) {
     }
     $rubrique     = explode ('-',substr($rubriques_id, 1, -1));
     $i            = 0;
+	$array_display = array();
     while($i<count($rubrique)) {
         $query2       = 'SELECT titre FROM rubriques WHERE id = '.$rubrique[$i].' AND actif = \'\' AND position = '.$case.' ORDER BY titre';
         $req2         = mysql_query ($query2);
         $res2         = mysql_num_rows($req2);
+
         if ($res2 !=0) {
             $nom_rubrique = mysql_result($req2,0,'titre');
-            echo '                    <p>'.$font_rubrique.'<b>'.$nom_rubrique.'</b>'.$cfg_font_fin."</p>\n";
+            $nom_rubrique = '                    <p>'.$font_rubrique.'<strong>'.$nom_rubrique.'</strong>'.$cfg_font_fin."</p>\n";
+			$array_display[$rubrique[$i]]['titre'] = $nom_rubrique;
             $query3       = 'SELECT titre, url, actif FROM liens WHERE rubrique_id = '.$rubrique[$i].' ORDER BY titre';
             $req3         = mysql_query ($query3);
             $res3         = mysql_num_rows($req3);
             $j            = 0;
+			$html		  = '';
             while($res3 != $j) {
-                $nom_lien     = mysql_result($req3,$j,'titre');
+				// pour les admin de cms
+				if ( isset($nom_lien) && strstr(mysql_result($req3,$j, 'titre'), $nom_lien) ) {
+                	$nom_lien     = str_replace( $nom_lien.' - ', '', mysql_result($req3, $j,'titre') );
+					$html		  = str_replace( '<a href="'.$url.'"','<a href="'.$url.'" class="inline" ', $html) ;
+					$class		  = 'class="inline" ';
+					$br			  = '                    <br />'."\n";
+					$before		  = '- ';
+				} else {
+                	$nom_lien     = mysql_result($req3,$j,'titre');
+					$class		  = '';
+					$br			  = '';
+					$before		  = '';
+				}
                 $url          = mysql_result($req3,$j,'url');
                 $actif        = mysql_result($req3,$j,'actif');
+/*				if (http_file_exists($url) == false) {
+					$html .= '<span class="error">ERROR</span>';
+				} */
                 if ($actif != 1) {
                     if ($target != 1) {
-                        echo '                    <a href="'.$url.'" target="_blank">'.$font_lien.$nom_lien.$cfg_font_fin.'</a><br>'."\n";
+                        $html .= '                    '.$before.'<a href="'.$url.'" '.$class.'target="_blank">'.$font_lien.$nom_lien.$cfg_font_fin.'</a>'."\n";
                     } else {
-                        echo '                    <a href="'.$url.'" target="_self">'.$font_lien.$nom_lien.$cfg_font_fin.'</a><br>'."\n";
+                        $html .= '                    '.$before.'<a href="'.$url.'" '.$class.'target="_self">'.$font_lien.$nom_lien.$cfg_font_fin.'</a>'."\n";
                     }
                 }
+				$html .= $br;
                 $j++;
             }
+			$array_display[$rubrique[$i]]['liens'] = $html;
         }
         $i++;
     }
-    echo '                    <br>'."\n";
+	$array_display = array_sort($array_display, 'titre', SORT_ASC);
+	foreach($array_display as $value) {
+		echo $value['titre'];
+		echo $value['liens'];
+	}
+    echo '                    <br />'."\n";
+}
+/**
+ * Simple function to sort an array by a specific key. Maintains index association.
+ *
+ * array	array	Tableau a trier
+ * on	string	valeur du tri
+ * order	string Ordre du tri
+ * Return	nouveau tableau
+ */
+function array_sort($array, $on, $order=SORT_ASC)
+{
+	$new_array = array();
+	$sortable_array = array();
+
+	if (count($array) > 0) {
+		foreach ($array as $k => $v) {
+			if (is_array($v)) {
+				foreach ($v as $k2 => $v2) {
+					if ($k2 == $on) {
+						$sortable_array[$k] = $v2;
+					}
+				}
+			} else {
+				$sortable_array[$k] = $v;
+			}
+		}
+
+		switch ($order) {
+			case SORT_ASC:
+				asort($sortable_array);
+			break;
+			case SORT_DESC:
+				arsort($sortable_array);
+			break;
+		}
+
+		foreach ($sortable_array as $k => $v) {
+			$new_array[$k] = $array[$k];
+		}
+	}
+
+	return $new_array;
+}
+/**
+ * Fonction pour vérifier que l'URL est fonctionnel
+ *
+ * Url	string	L'url a tester
+ * Return	true/false
+ */
+function http_file_exists($url)
+{
+	$f=@fopen($url,'r');
+	if($f)
+	{
+		fclose($f);
+		return true;
+	}
+	return false;
 }
 ?>

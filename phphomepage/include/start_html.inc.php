@@ -3,13 +3,13 @@
  * [fr]Fichier qui génére le code de l'entête HTML commun à tous les fichiers
  * [en]File which génére the code of heading HTML common to all the files
  *
- * @copyright    05/08/2005
- * @since	     09/08/2001
- * @version      1.6a
+ * @copyright    12/03/2012
+ * @since	 09/08/2001
+ * @version      1.7
  * @module       start_html
  * @modulegroup  include
  * @package      php_homepage
- * @access	     public
+ * @access	 public
  * @author       Eric BLAS <webmaster@phphomepage.net>
  */
 /**
@@ -44,10 +44,11 @@ require_once (LOCAL_INCLUDE.'connect.inc.php');
 require_once (LOCAL_INCLUDE.'localisation/lang_'.$cfg_Langue.'.inc.php');
 echo '<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
                       "http://www.w3.org/TR/html4/loose.dtd">'."\n";
-echo '<HTML>'."\n";
-echo '    <HEAD>'."\n";
-echo '        <TITLE>'.$cfg_Version.'</TITLE>'."\n";
-echo '        <META http-equiv="Content-Type" content="text/html; charset='.$cfg_charset.'">'."\n";
+echo '<html>'."\n";
+echo '    <head>'."\n";
+echo '        <title>'.$cfg_Version.'</title>'."\n";
+echo '        <meta http-equiv="Content-Type" content="text/html; charset='.$cfg_charset.'" />'."\n";
+echo '        <meta http-equiv="viewport" content="with=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />'."\n";
 
 if (empty($homepage)){
     if (!empty($_GET['homepage'])) {
@@ -57,7 +58,7 @@ if (empty($homepage)){
     }
 }
 if (!empty($homepage)) {
-    echo '        <LINK rel="stylesheet" href="include/style.css">'."\n";
+    echo '        <link rel="stylesheet" href="include/style.css" />'."\n";
 }
-echo '    </HEAD>'."\n";
-echo '    <BODY bgcolor="'.$cfg_FondIndex.'" link="'.$cfg_linkIndex.'" vlink="'.$cfg_VlinkIndex.'" alink="'.$cfg_AlinkIndex.'">';
+echo '    </head>'."\n";
+echo '    <body bgcolor="'.$cfg_FondIndex.'" link="'.$cfg_linkIndex.'" vlink="'.$cfg_VlinkIndex.'" alink="'.$cfg_AlinkIndex.'">';

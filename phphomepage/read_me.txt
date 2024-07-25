@@ -1,9 +1,9 @@
 /**
  * Php_Homepage
  *
- * @copyright    20/03/2004
+ * @copyright    04/01/2013
  * @since        15/11/2003
- * @version      1.6
+ * @version      1.7
  * @author       Eric BLAS <webmaster@phphomepage.net>
  */
 
@@ -36,6 +36,21 @@ Use
 -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 Update
 ------
+
+v 1.7 (04/01/2013) 
+- Small optimization for the smartphones and tablet tactile
+- Correction of source code HTML5 to return it W3C
+- Addition of Meta Robot noindex
+- Modification of the sorting of the categories so that it is in the alphabetical order
+- Addition of the double management of link on the same line example (the beginning of the 2nd bond must be identical to the precedent):
+link 1 = My Web site
+link 2 = My Web site - Administration (or another link)
+give to posting
+<a href="http://lien-1/">My Web site</a> - <a href="http://lien-2/">Administration (or another link)</a>
+
+v 1.6a (21/09/2005) 
+- Correction of some bug
+
 v 1.6 (20/03/2004)
 - grammatical Correction of the comentaires 
 - correction of the bug of addition of a new account for a compatibility PHP4 > = 4.1

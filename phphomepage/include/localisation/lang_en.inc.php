@@ -2,13 +2,13 @@
 /**
  * [en]File of English language
  *
- * @copyright    22/03/2004
- * @since	     03/08/2001
- * @version      1.5
+ * @copyright    09/01/2013
+ * @since        03/08/2001
+ * @version      1.8
  * @module       lang_en
  * @modulegroup  localisation
  * @package      php_homepage
- * @access	     public
+ * @access       public
  * @author       Eric BLAS <webmaster@phphomepage.net>
  */
 
@@ -19,12 +19,13 @@ $lang_Introuvable             = 'is untraceable.';
 $lang_Accueil                 = 'Welcome on';
 $lang_NvellePage              = 'Create or modify a homepage:';
 $lang_GenereTable             = 'Cliquer to create here your tables';
-$lang_ErreurNom               = 'You must re-enter a <b>NAME</b> in one of the fields of form!';
+$lang_ErreurNom               = 'You must re-enter a <b>NAME</b> in the fields of form!';
+$lang_NomPlaceolder           = 'Name';
 $lang_Frame                   = 'This application functions with navigators managers the frames.';
-$lang_1                       = '1 . To create headings';
-$lang_2                       = '2 . To add links';
-$lang_3                       = '3 . To create your formatting';
-$lang_4                       = '4 . Finally to generate your homepage';
+$lang_1                       = 'To create headings';
+$lang_2                       = 'To add links';
+$lang_3                       = 'To create your formatting';
+$lang_4                       = 'Finally to generate your homepage';
 $lang_Constituer1             = 'Your homepage \'';
 $lang_Constituer2             = ' \' is composed of headings and links according to:';
 $lang_Position                = 'position =';
@@ -55,6 +56,7 @@ $lang_LienSup                 = 'Remove a link';
 $lang_ModifUnLien             = 'Modify a link';
 $lang_Lien                    = 'Links';
 $lang_ErrorLienSup            = 'You must choose a link to be removed!';
+$lang_ErrorLienUrl            = 'You must choose a functional URL!';
 $lang_LienSupOK               = 'The link was removed';
 $lang_LienNom                 = 'You must seize a name!';
 $lang_LienURL                 = 'You must seize a URL!';
@@ -78,6 +80,7 @@ $lang_RetourIndex             = 'Choose a new homepage';
 
 // Formulaire
 $lang_Nom                     = 'Its name:';
+$lang_URL                     = 'Its URL : ';
 $lang_RVB                     = 'Red - Green - Blue';
 $lang_CoulFond                = 'Background color';
 $lang_CoulRub                 = 'Color of the headings';
@@ -91,4 +94,8 @@ $lang_Title                   = 'Page title (optional)';
 $lang_Creer                   = 'Create';
 $lang_Modifier                = 'Modify';
 $lang_Supprimer               = 'Remove';
-?>
+$lang_Retour                  = 'Retour';
+// Error Mysql
+$lang_error_connect           = 'Could not connect: ';
+$lang_error_database          = 'Could not select database: ';
+$lang_error_query             = 'Could not query: ';

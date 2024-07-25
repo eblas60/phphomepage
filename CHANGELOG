@@ -5,6 +5,13 @@
  * # Fix
  */
 
+20-décembre-2016 : v1.8
+ + Ajout de Bootstrap (amélioration graphique de l'admin)
+ + Ajout d'une classe BDD pour être compatible PHP > 5.3
+ # Correction du code source HTML5 pour le rendre plus compatible avec les normes W3C
+ # Corrections de quelques bugs
+ # Amélioration de la page de listing des liens pour écran tactile
+
 04-janvier-2013 v 1.7
  # Petite optimisation pour les smartphones et tablettes tactile
  # Correction du code source HTML5 pour le rendre W3C

@@ -1,10 +1,10 @@
 <?php
 /**
- * [fr]Fichier de langue fran�aise
+ * [fr]Fichier de langue française
  *
- * @copyright    22/03/2004
- * @since	     03/08/2001
- * @version      1.5
+ * @copyright    09/01/2013
+ * @since        03/08/2001
+ * @version      1.8
  * @module       lang_fr
  * @modulegroup  localisation
  * @package      php_homepage
@@ -19,12 +19,13 @@ $lang_Introuvable             = 'est introuvable.';
 $lang_Accueil                 = 'Bienvenue sur';
 $lang_NvellePage              = 'Pour cr&eacute;er ou modifier une page de d&eacute;marrage :';
 $lang_GenereTable             = 'Cliquer ici pour cr&eacute;er vos tables';
-$lang_ErreurNom               = 'Vous devez rentrer un <b>NOM</b> dans un des champs de formulaire !';
+$lang_ErreurNom               = 'Vous devez rentrer un <b>NOM</b> dans le champs de formulaire !';
+$lang_NomPlaceolder           = 'Nom';
 $lang_Frame                   = 'Cette application fonctionne avec des navigateurs g&eacute;rants les frames.';
-$lang_1                       = '1 . Cr&eacute;er des rubriques';
-$lang_2                       = '2 . Ajouter des liens';
-$lang_3                       = '3 . Cr&eacute;er votre mise en page';
-$lang_4                       = '4 . Enfin g&eacute;n&eacute;rer votre page de d&eacute;marrage';
+$lang_1                       = 'Cr&eacute;er des rubriques';
+$lang_2                       = 'Ajouter des liens';
+$lang_3                       = 'Cr&eacute;er votre mise en page';
+$lang_4                       = 'Enfin g&eacute;n&eacute;rer votre page de d&eacute;marrage';
 $lang_Constituer1             = 'Votre page de d&eacute;marrage \'';
 $lang_Constituer2             = ' \' est contitu&eacute; des rubriques et des liens suivant :';
 $lang_Position                = 'position =';
@@ -41,7 +42,7 @@ $lang_Place                   = ' Place :';
 $lang_ChoixRubrique           = 'Choisir la rubrique';
 $lang_ErrorRubNom             = 'Vous devez entrer un nom !';
 $lang_ErrorRubPosition        = 'Vous devez entrer une position !';
-$lang_ErrorRubPositionSup     = 'Vous devez entrer une position inf�rieur � '.(($cfg_NbrLignes * $cfg_NbrColonnes) + 1).' !';
+$lang_ErrorRubPositionSup     = 'Vous devez entrer une position inférieur à '.(($cfg_NbrLignes * $cfg_NbrColonnes) + 1).' !';
 $lang_RubOK                   = 'La rubrique a &eacute;t&eacute; cr&eacute;&eacute;e';
 $lang_ErrorRubSupp            = 'Vous devez choisir une rubrique &agrave; supprimer !';
 $lang_RubSupp                 = 'La rubrique a &eacute;t&eacute; supprim&eacute;';
@@ -60,6 +61,7 @@ $lang_LienNom                 = 'Vous devez saisir un nom !';
 $lang_LienURL                 = 'Vous devez saisir une URL !';
 $lang_LienRub                 = 'Vous devez choisir une rubrique !';
 $lang_ErrorLienModif          = 'Vous devez choisir un lien !';
+$lang_ErrorLienUrl            = 'Vous devez choisir une URL fonctionnelle !';
 $lang_LienOK                  = 'Le lien a &eacute;t&eacute; cr&eacute;&eacute;e';
 $lang_ModifLienOK             = 'Le lien a &eacute;t&eacute; modifi&eacute;';
 $lang_Target                  = 'Ouvrir une nouvelle fen&ecirc;tre';
@@ -78,6 +80,7 @@ $lang_RetourIndex             = 'Choisir une nouvelle page de d&eacute;marrage';
 
 // Formulaire
 $lang_Nom                     = 'Son nom : ';
+$lang_URL                     = 'Son URL : ';
 $lang_RVB                     = 'Rouge - Vert - Bleu';
 $lang_CoulFond                = 'Couleur de fond';
 $lang_CoulRub                 = 'Couleur des rubriques';
@@ -91,4 +94,8 @@ $lang_Title                   = 'Titre de la page (facultatif)';
 $lang_Creer                   = 'Cr&eacute;er';
 $lang_Modifier                = 'Modifier';
 $lang_Supprimer               = 'Supprimer';
-?>
+$lang_Retour                  = 'Back';
+// Error Mysql
+$lang_error_connect           = 'Impossible de se connecter : ';
+$lang_error_database          = 'Impossible de sélectionner la table : ';
+$lang_error_query             = 'Impossible d\'exécuter la requête : ';

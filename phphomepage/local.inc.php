@@ -3,14 +3,14 @@
  * [fr]Fichier qui contient divers paramètres locaux
  * [en]File which contains various local parameters
  *
- * @copyright    20/03/2004
- * @since	     09/08/2001
- * @version      1.6
- * @module       local
- * @modulegroup  librairie
- * @package      php_homepage
- * @access	     public
- * @author       Eric BLAS <eric.blas@blas-intra.net>
+ * @copyright	20/12/2016
+ * @since		09/01/2001
+ * @version		1.8
+ * @module		homepage
+ * @modulegroup	homepage
+ * @package		php_homepage
+ * @access		public
+ * @author		Eric BLAS <webmaster@phphomepage.net>
  */
 /**
  * [fr]Variable pour fixer le dossier d'include
@@ -21,4 +21,3 @@
  * @const LOCAL_INCLUDE 
  */
 define('LOCAL_INCLUDE', './include/');
-?>

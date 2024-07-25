@@ -2,93 +2,100 @@
 /**
  * [En]File of Russian language
  *
- * @copyright    22/03/2004
- * @since	     03/08/2001
- * @version      1.5
+ * @copyright    09/01/2013
+ * @since        03/08/2001
+ * @version      1.8
  * @module       lang_ru
  * @modulegroup  localisation
  * @package      php_homepage
- * @access	     public
+ * @access       public
  * @author       Eric BLAS <webmaster@phphomepage.net>
  * @author       Lord <Kox@smtp.ru>
  */
 
-$lang_ConnexBase              = "Проблемы с базой<br>\n Попробуйте чуть позже";
-$lang_ErrorNomFichier         = "Вы обязательно должны указать имя.<br>Например:";
-$lang_Fichier                 = "Файл";
+$lang_ConnexBase              = "ГЏГ°Г®ГЎГ«ГҐГ¬Г» Г± ГЎГ Г§Г®Г©<br>\n ГЏГ®ГЇГ°Г®ГЎГіГ©ГІГҐ Г·ГіГІГј ГЇГ®Г§Г¦ГҐ";
+$lang_ErrorNomFichier         = "Г‚Г» Г®ГЎГїГ§Г ГІГҐГ«ГјГ­Г® Г¤Г®Г«Г¦Г­Г» ГіГЄГ Г§Г ГІГј ГЁГ¬Гї.<br>ГЌГ ГЇГ°ГЁГ¬ГҐГ°:";
+$lang_Fichier                 = "Г”Г Г©Г«";
 $lang_Introuvable             = "is untraceable.";
-$lang_Accueil                 = "Добро пожаловать на";
-$lang_NvellePage              = "Создать или модефицировать страничку:";
-$lang_GenereTable             = "Нажмите что бы создать таблицу";
-$lang_ErreurNom               = "Вы должно сново ввести <b>ИМЯ</b> в одно из полей формы";
-$lang_Frame                   = "Эта форма для навигации в управлении фрэймами.";
-$lang_1                       = "1 . Для создания заголовка";
-$lang_2                       = "2 . Добавить ссылку";
-$lang_3                       = "3 . Создать ваш формат";
-$lang_4                       = "4 . Генерирование вашей странички";
-$lang_Constituer1             = "Ваша Страничка \"";
-$lang_Constituer2             = " \" составлен из заголовков и ссылок согласно:";
-$lang_Position                = "Позиция =";
-$lang_Realiser                = "Созда с";
-$lang_CreerMEP                = "Создать новый формат";
-$lang_ModifOK                 = "Стиль оформления был изменён";
-$lang_CreerOK                 = "Стиль оформления был создан";
-$lang_Rubrique                = "Заголовки";
-$lang_NvelleRubrique          = "Создать новый заголовок";
-$lang_PlacerRubrique          = "Поместить заголовок на страницу:";
-$lang_SuppRubrique            = "Удалить заголовок";
-$lang_ModifUneRubrique        = "Редактировать заголовок";
-$lang_Place                   = " Место :";
-$lang_ChoixRubrique           = "Выберите заголовок";
-$lang_ErrorRubNom             = "Вы должны ввести имя!";
-$lang_ErrorRubPosition        = "Вы должны ввести позицию!";
+$lang_Accueil                 = "Г„Г®ГЎГ°Г® ГЇГ®Г¦Г Г«Г®ГўГ ГІГј Г­Г ";
+$lang_NvellePage              = "Г‘Г®Г§Г¤Г ГІГј ГЁГ«ГЁ Г¬Г®Г¤ГҐГґГЁГ¶ГЁГ°Г®ГўГ ГІГј Г±ГІГ°Г Г­ГЁГ·ГЄГі:";
+$lang_GenereTable             = "ГЌГ Г¦Г¬ГЁГІГҐ Г·ГІГ® ГЎГ» Г±Г®Г§Г¤Г ГІГј ГІГ ГЎГ«ГЁГ¶Гі";
+$lang_ErreurNom               = "Г‚Г» Г¤Г®Г«Г¦Г­Г® Г±Г­Г®ГўГ® ГўГўГҐГ±ГІГЁ <b>Г€ГЊГџ</b> Гў Г®Г¤Г­Г® ГЁГ§ ГЇГ®Г«ГҐГ© ГґГ®Г°Г¬Г»";
+$lang_NomPlaceolder           = 'Г€ГЊГџ';
+$lang_Frame                   = "ГќГІГ  ГґГ®Г°Г¬Г  Г¤Г«Гї Г­Г ГўГЁГЈГ Г¶ГЁГЁ Гў ГіГЇГ°Г ГўГ«ГҐГ­ГЁГЁ ГґГ°ГЅГ©Г¬Г Г¬ГЁ.";
+$lang_1                       = "Г„Г«Гї Г±Г®Г§Г¤Г Г­ГЁГї Г§Г ГЈГ®Г«Г®ГўГЄГ ";
+$lang_2                       = "Г„Г®ГЎГ ГўГЁГІГј Г±Г±Г»Г«ГЄГі";
+$lang_3                       = "Г‘Г®Г§Г¤Г ГІГј ГўГ Гё ГґГ®Г°Г¬Г ГІ";
+$lang_4                       = "ГѓГҐГ­ГҐГ°ГЁГ°Г®ГўГ Г­ГЁГҐ ГўГ ГёГҐГ© Г±ГІГ°Г Г­ГЁГ·ГЄГЁ";
+$lang_Constituer1             = "Г‚Г ГёГ  Г‘ГІГ°Г Г­ГЁГ·ГЄГ  \"";
+$lang_Constituer2             = " \" Г±Г®Г±ГІГ ГўГ«ГҐГ­ ГЁГ§ Г§Г ГЈГ®Г«Г®ГўГЄГ®Гў ГЁ Г±Г±Г»Г«Г®ГЄ Г±Г®ГЈГ«Г Г±Г­Г®:";
+$lang_Position                = "ГЏГ®Г§ГЁГ¶ГЁГї =";
+$lang_Realiser                = "Г‘Г®Г§Г¤Г  Г±";
+$lang_CreerMEP                = "Г‘Г®Г§Г¤Г ГІГј Г­Г®ГўГ»Г© ГґГ®Г°Г¬Г ГІ";
+$lang_ModifOK                 = "Г‘ГІГЁГ«Гј Г®ГґГ®Г°Г¬Г«ГҐГ­ГЁГї ГЎГ»Г« ГЁГ§Г¬ГҐГ­ВёГ­";
+$lang_CreerOK                 = "Г‘ГІГЁГ«Гј Г®ГґГ®Г°Г¬Г«ГҐГ­ГЁГї ГЎГ»Г« Г±Г®Г§Г¤Г Г­";
+$lang_Rubrique                = "Г‡Г ГЈГ®Г«Г®ГўГЄГЁ";
+$lang_NvelleRubrique          = "Г‘Г®Г§Г¤Г ГІГј Г­Г®ГўГ»Г© Г§Г ГЈГ®Г«Г®ГўГ®ГЄ";
+$lang_PlacerRubrique          = "ГЏГ®Г¬ГҐГ±ГІГЁГІГј Г§Г ГЈГ®Г«Г®ГўГ®ГЄ Г­Г  Г±ГІГ°Г Г­ГЁГ¶Гі:";
+$lang_SuppRubrique            = "Г“Г¤Г Г«ГЁГІГј Г§Г ГЈГ®Г«Г®ГўГ®ГЄ";
+$lang_ModifUneRubrique        = "ГђГҐГ¤Г ГЄГІГЁГ°Г®ГўГ ГІГј Г§Г ГЈГ®Г«Г®ГўГ®ГЄ";
+$lang_Place                   = " ГЊГҐГ±ГІГ® :";
+$lang_ChoixRubrique           = "Г‚Г»ГЎГҐГ°ГЁГІГҐ Г§Г ГЈГ®Г«Г®ГўГ®ГЄ";
+$lang_ErrorRubNom             = "Г‚Г» Г¤Г®Г«Г¦Г­Г» ГўГўГҐГ±ГІГЁ ГЁГ¬Гї!";
+$lang_ErrorRubPosition        = "Г‚Г» Г¤Г®Г«Г¦Г­Г» ГўГўГҐГ±ГІГЁ ГЇГ®Г§ГЁГ¶ГЁГѕ!";
 $lang_ErrorRubPositionSup     = 'You must enter a position lower than '.(($cfg_NbrLignes * $cfg_NbrColonnes) + 1).'!';
-$lang_RubOK                   = "Заголовок был создан";
-$lang_ErrorRubSupp            = "Вы должны выбрать заголовок для перемещения!";
-$lang_RubSupp                 = "Заголовок был перенесён";
-$lang_ErrorRubModif           = "Вы должны выбрать заголовок для изменения!";
-$lang_ErrorRubNomPlace        = "Вы должны указать имя и место!";
-$lang_ModifRubOK              = "Заголовок был изменён";
-$lang_ErrorLienRub            = "Вы должны создать хотя бы <B>1</B> заголовок";
-$lang_LienChoix               = "Выберите ссылку";
-$lang_LienNew                 = "Создать новую ссылку";
-$lang_LienSup                 = "Удалить ссылку";
+$lang_RubOK                   = "Г‡Г ГЈГ®Г«Г®ГўГ®ГЄ ГЎГ»Г« Г±Г®Г§Г¤Г Г­";
+$lang_ErrorRubSupp            = "Г‚Г» Г¤Г®Г«Г¦Г­Г» ГўГ»ГЎГ°Г ГІГј Г§Г ГЈГ®Г«Г®ГўГ®ГЄ Г¤Г«Гї ГЇГҐГ°ГҐГ¬ГҐГ№ГҐГ­ГЁГї!";
+$lang_RubSupp                 = "Г‡Г ГЈГ®Г«Г®ГўГ®ГЄ ГЎГ»Г« ГЇГҐГ°ГҐГ­ГҐГ±ВёГ­";
+$lang_ErrorRubModif           = "Г‚Г» Г¤Г®Г«Г¦Г­Г» ГўГ»ГЎГ°Г ГІГј Г§Г ГЈГ®Г«Г®ГўГ®ГЄ Г¤Г«Гї ГЁГ§Г¬ГҐГ­ГҐГ­ГЁГї!";
+$lang_ErrorRubNomPlace        = "Г‚Г» Г¤Г®Г«Г¦Г­Г» ГіГЄГ Г§Г ГІГј ГЁГ¬Гї ГЁ Г¬ГҐГ±ГІГ®!";
+$lang_ModifRubOK              = "Г‡Г ГЈГ®Г«Г®ГўГ®ГЄ ГЎГ»Г« ГЁГ§Г¬ГҐГ­ВёГ­";
+$lang_ErrorLienRub            = "Г‚Г» Г¤Г®Г«Г¦Г­Г» Г±Г®Г§Г¤Г ГІГј ГµГ®ГІГї ГЎГ» <B>1</B> Г§Г ГЈГ®Г«Г®ГўГ®ГЄ";
+$lang_LienChoix               = "Г‚Г»ГЎГҐГ°ГЁГІГҐ Г±Г±Г»Г«ГЄГі";
+$lang_LienNew                 = "Г‘Г®Г§Г¤Г ГІГј Г­Г®ГўГіГѕ Г±Г±Г»Г«ГЄГі";
+$lang_LienSup                 = "Г“Г¤Г Г«ГЁГІГј Г±Г±Г»Г«ГЄГі";
 $lang_ModifUnLien             = 'Modify a link';
-$lang_Lien                    = "Ссылки";
-$lang_ErrorLienSup            = "Вы должны выбрать ссылку для перемещения!";
-$lang_LienSupOK               = "Ссыдка была удалена";
-$lang_LienNom                 = "Вы должны указать имя!";
-$lang_LienURL                 = "Вы должны указать ссылку!";
-$lang_LienRub                 = "Вы должны выбрать заголовок!";
+$lang_Lien                    = "Г‘Г±Г»Г«ГЄГЁ";
+$lang_ErrorLienSup            = "Г‚Г» Г¤Г®Г«Г¦Г­Г» ГўГ»ГЎГ°Г ГІГј Г±Г±Г»Г«ГЄГі Г¤Г«Гї ГЇГҐГ°ГҐГ¬ГҐГ№ГҐГ­ГЁГї!";
+$lang_ErrorLienUrl            = 'You must choose a functional URL!';
+$lang_LienSupOK               = "Г‘Г±Г»Г¤ГЄГ  ГЎГ»Г«Г  ГіГ¤Г Г«ГҐГ­Г ";
+$lang_LienNom                 = "Г‚Г» Г¤Г®Г«Г¦Г­Г» ГіГЄГ Г§Г ГІГј ГЁГ¬Гї!";
+$lang_LienURL                 = "Г‚Г» Г¤Г®Г«Г¦Г­Г» ГіГЄГ Г§Г ГІГј Г±Г±Г»Г«ГЄГі!";
+$lang_LienRub                 = "Г‚Г» Г¤Г®Г«Г¦Г­Г» ГўГ»ГЎГ°Г ГІГј Г§Г ГЈГ®Г«Г®ГўГ®ГЄ!";
 $lang_ErrorLienModif          = 'You must choose a link !';
-$lang_LienOK                  = "Ссылка успешно добавлена";
+$lang_LienOK                  = "Г‘Г±Г»Г«ГЄГ  ГіГ±ГЇГҐГёГ­Г® Г¤Г®ГЎГ ГўГ«ГҐГ­Г ";
 $lang_ModifLienOK             = 'The link was modified';
-$lang_Target                  = "Открыть новое окно";
-$lang_Oui                     = "Да";
-$lang_Non                     = "Нет";
+$lang_Target                  = "ГЋГІГЄГ°Г»ГІГј Г­Г®ГўГ®ГҐ Г®ГЄГ­Г®";
+$lang_Oui                     = "Г„Г ";
+$lang_Non                     = "ГЌГҐГІ";
 
 // Navigation
-$lang_PourNom                 = "Для страницы : ";
-$lang_AjoutRubrique           = "Добавить заголовки";
-$lang_AjoutLiens              = "Добавить ссылки";
-$lang_ModifRubrique           = "Редактировать заголовки";
-$lang_ModifLiens              = "Редактировать ссылки";
-$lang_MiseEnPage              = "Стиль оформления";
-$lang_AffHomepage             = "Показать вашу страничку";
-$lang_RetourIndex             = "Выбрать новую страничку";
+$lang_PourNom                 = "Г„Г«Гї Г±ГІГ°Г Г­ГЁГ¶Г» : ";
+$lang_AjoutRubrique           = "Г„Г®ГЎГ ГўГЁГІГј Г§Г ГЈГ®Г«Г®ГўГЄГЁ";
+$lang_AjoutLiens              = "Г„Г®ГЎГ ГўГЁГІГј Г±Г±Г»Г«ГЄГЁ";
+$lang_ModifRubrique           = "ГђГҐГ¤Г ГЄГІГЁГ°Г®ГўГ ГІГј Г§Г ГЈГ®Г«Г®ГўГЄГЁ";
+$lang_ModifLiens              = "ГђГҐГ¤Г ГЄГІГЁГ°Г®ГўГ ГІГј Г±Г±Г»Г«ГЄГЁ";
+$lang_MiseEnPage              = "Г‘ГІГЁГ«Гј Г®ГґГ®Г°Г¬Г«ГҐГ­ГЁГї";
+$lang_AffHomepage             = "ГЏГ®ГЄГ Г§Г ГІГј ГўГ ГёГі Г±ГІГ°Г Г­ГЁГ·ГЄГі";
+$lang_RetourIndex             = "Г‚Г»ГЎГ°Г ГІГј Г­Г®ГўГіГѕ Г±ГІГ°Г Г­ГЁГ·ГЄГі";
 
 // Formulaire
-$lang_Nom                     = "Название:";
-$lang_RVB                     = "Красный - Зелёный - Синий";
-$lang_CoulFond                = "Цвет фона";
-$lang_CoulRub                 = "Цвет заголовка";
-$lang_TailleRub               = "Размер заголовка";
-$lang_CoulLien                = "Цвет ссылок";
-$lang_TailleLien              = "Размер ссылок";
-$lang_Police                  = "Шрифт";
-$lang_Title                   = "Описание страницы";
+$lang_Nom                     = "ГЌГ Г§ГўГ Г­ГЁГҐ:";
+$lang_URL                     = 'Its URL : ';
+$lang_RVB                     = "ГЉГ°Г Г±Г­Г»Г© - Г‡ГҐГ«ВёГ­Г»Г© - Г‘ГЁГ­ГЁГ©";
+$lang_CoulFond                = "Г–ГўГҐГІ ГґГ®Г­Г ";
+$lang_CoulRub                 = "Г–ГўГҐГІ Г§Г ГЈГ®Г«Г®ГўГЄГ ";
+$lang_TailleRub               = "ГђГ Г§Г¬ГҐГ° Г§Г ГЈГ®Г«Г®ГўГЄГ ";
+$lang_CoulLien                = "Г–ГўГҐГІ Г±Г±Г»Г«Г®ГЄ";
+$lang_TailleLien              = "ГђГ Г§Г¬ГҐГ° Г±Г±Г»Г«Г®ГЄ";
+$lang_Police                  = "ГГ°ГЁГґГІ";
+$lang_Title                   = "ГЋГЇГЁГ±Г Г­ГЁГҐ Г±ГІГ°Г Г­ГЁГ¶Г»";
 // Bouton
-$lang_Creer                   = "Создать";
-$lang_Modifier                = "Редактировать";
-$lang_Supprimer               = "Удалить";
-?>
+$lang_Creer                   = "Г‘Г®Г§Г¤Г ГІГј";
+$lang_Modifier                = "ГђГҐГ¤Г ГЄГІГЁГ°Г®ГўГ ГІГј";
+$lang_Supprimer               = "Г“Г¤Г Г«ГЁГІГј";
+$lang_Retour                  = 'Back';
+// Error Mysql
+$lang_error_connect           = 'Could not connect: ';
+$lang_error_database          = 'Could not select database: ';
+$lang_error_query             = 'Could not query: ';

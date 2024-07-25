@@ -1,9 +1,9 @@
 /**
  * Php_Homepage
  *
- * @copyright    04/01/2013
+ * @copyright    20/12/2016
  * @since        15/11/2003
- * @version      1.7
+ * @version      1.8
  * @author       Eric BLAS <webmaster@phphomepage.net>
  */
 
@@ -36,6 +36,13 @@ Use
 -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 Update
 ------
+
+V 1.8 (20/12/2016)
+- Added Bootstrap (graphical improvement of the admin)
+- Added a BDD class to be PHP compatible> 5.3
+- Fix HTML5 source code to make it more W3C compliante
+- Fixed some bugs
+- Improved link listing page for touchscreen
 
 v 1.7 (04/01/2013) 
 - Small optimization for the smartphones and tablet tactile

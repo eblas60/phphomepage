@@ -3,47 +3,57 @@
  * [fr]Fichier de gestion des homepages
  * [en]File of management of the homepage
  *
- * @copyright    20/03/2004
- * @since	     09/01/2001
- * @version      1.6
- * @module       php_homepage
- * @modulegroup  php_homepage
- * @package      php_homepage
- * @access	     public
- * @author       Eric BLAS <webmaster@phphomepage.net>
+ * @copyright	20/12/2016
+ * @since		09/01/2001
+ * @version		1.8
+ * @module		homepage
+ * @modulegroup	homepage
+ * @package		php_homepage
+ * @access		public
+ * @author		Eric BLAS <webmaster@phphomepage.net>
  */
 /**
- * [fr]Fichier qui contient divers paramètres locaux
+ * [fr]Fichier qui contient divers paramÃ¨tres locaux
  */
 require_once('./local.inc.php');
 /**
- * [fr]Fichier qui génére le code de l'entête HTML commun à tous les fichiers
+ * [fr]Fichier qui gÃ©nÃ©re le code de l'entÃªte HTML commun Ã  tous les fichiers
  */
 require_once(LOCAL_INCLUDE.'start_html.inc.php');
+
+if (empty($_GET['page']) AND empty($_POST['page']) AND empty($page)) {
+	$page = '';
+} elseif (empty($_POST['page'])) {
+	$page = $_GET['page'];
+} else {
+	$page = $_POST['page'];
+}
+
 echo "\n";
 /**
- * [fr]Si le nom de la page n'est pas passé par le formulaire on renvoie sur la page de démarrage
+ * [fr]Si le nom de la page n'est pas passÃ© par le formulaire on renvoie sur la page de dÃ©marrage
  */
 if (empty($_GET['homepage']) AND empty($_POST['homepage']) AND empty($homepage)) {
-    echo '        '.$cfg_font_2_r.$lang_ErreurNom."<br>\n";
-    echo '        <a href="index.php">index.php</a>'.$cfg_font_fin;
+    echo '        <p class="text-danger">'.$lang_ErreurNom."<br>\n";
+    echo '        <a class="btn btn-danger btn-small" href="index.php"><span class="glyphicon glyphicon-chevron-left icon-white"></span>&nbsp;&nbsp;'.$lang_Retour.'</a></p>'."\n";
 } else {
-    echo '        <table width="100%" border="0" cellspacing="0" cellpadding="5">'."\n";
-    echo '            <tr>'."\n";
-    echo '                <td valign="top" bgcolor="#'.$cfg_FondGauche.'" width="'.$cfg_widthGauche.'">'."\n";
+?>
+                <div class="row  span12">
+                    <div class="col-md-4 bs-docs-sidebar">
+<?php
+//    echo '        <table width="100%" border="0" cellspacing="0" cellpadding="5">'."\n";
+//    echo '            <tr>'."\n";
+//    echo '                <td valign="top" bgcolor="#'.$cfg_FondGauche.'" width="'.$cfg_widthGauche.'">'."\n";
     /**
      * [fr]Fichier pour le menu de navigation
      */
     require_once(LOCAL_INCLUDE.'navig.inc.php');
-    echo '                </td>'."\n";
-    echo '                <td valign="top">'."\n";
-    if (empty($_GET['page']) AND empty($_POST['page']) AND empty($page)) {
-        $page = '';
-    } elseif (empty($_POST['page'])) {
-        $page = $_GET['page'];
-    } else {
-        $page = $_POST['page'];
-    }
+?>
+                    </div>
+                    <div class="col-md-8">
+<?php
+//    echo '                </td>'."\n";
+//    echo '                <td valign="top">'."\n";
     if ($page == 'rubrique') {
         /**
          * [fr]Fichier pour la gestion des rubriques
@@ -61,15 +71,20 @@ if (empty($_GET['homepage']) AND empty($_POST['homepage']) AND empty($homepage))
         require(LOCAL_INCLUDE.'page.inc.php');
     } else {
         /**
-         * [fr]Fichier par défaut
+         * [fr]Fichier par dÃ©faut
          */
         require(LOCAL_INCLUDE.'main.inc.php');
     }
-    echo '                </td>'."\n";
-    echo '            </tr>'."\n";
-    echo '        </table>';
+//    echo '                </td>'."\n";
+//    echo '            </tr>'."\n";
+//    echo '        </table>';
+?>
+                    </div>
+                </div>
+<?php
 }
+echo '                <div class="text-center" style="margin-top:20px;"><a href="http://www.phphomepage.net" title="www.phphomepage.net" target="_blank" class="btn btn-mini">Copyright Â© 2001-'.date('Y').' phphomepage.net<br />All Rights Reserved.</a></div>'."\n";
 /**
- * [fr]Fichier qui génére le code de fin de page HTML commun à tous les fichiers
+ * [fr]Fichier qui gÃ©nÃ©re le code de fin de page HTML commun Ã  tous les fichiers
  */
 require(LOCAL_INCLUDE.'stop_html.inc.php'); ?>

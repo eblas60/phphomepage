@@ -3,44 +3,80 @@
  * [fr]Fichier d'accueil de php homepage
  * [en]File of reception of php homepage
  *
- * @copyright    20/03/2004
- * @since	     09/01/2001
- * @version      1.6
- * @module       index
- * @modulegroup  identification
- * @package      php_homepage
- * @access	     public
- * @author       Eric BLAS <webmaster@phphomepage.net>
+ * @copyright	20/12/2016
+ * @since		09/01/2001
+ * @version		1.8
+ * @module		homepage
+ * @modulegroup	homepage
+ * @package		php_homepage
+ * @access		public
+ * @author		Eric BLAS <webmaster@phphomepage.net>
  */
 /**
- * [fr]Fichier qui contient divers paramètres locaux
+ * [fr]Fichier qui contient divers paramÃ¨tres locaux
  */
 require_once('./local.inc.php');
 /**
- * [fr]Fichier qui génére le code de l'entête HTML commun à tous les fichiers
+ * [fr]Fichier qui gÃ©nÃ©re le code de l'entÃªte HTML commun Ã  tous les fichiers
  */
 require_once(LOCAL_INCLUDE.'start_html.inc.php');
 /**
- * [fr]Création des tables dans la base si elles n'y sont pas
+ * [fr]CrÃ©ation des tables dans la base si elles n'y sont pas
  */
-$tmp_req    = mysql_list_tables($cfg_Base);
-$tmp_table  = mysql_num_rows($tmp_req);
+if (strnatcmp(phpversion(),'4.3.7') >= 0)
+{
+	// mysqli
+	$query = "SHOW TABLES FROM $cfg_Base";
+	if ($tmp_req = mysqli_prepare($link, $query)) {
+		/* execute query */
+		mysqli_stmt_execute($tmp_req);
+
+		/* store result */
+		mysqli_stmt_store_result($tmp_req);
+		$tmp_table  = mysqli_stmt_num_rows($tmp_req);
+
+		/* close statement */
+		mysqli_stmt_close($tmp_req);
+	}
+}
+else
+{
+	$tmp_req    = mysql_list_tables($cfg_Base);
+	$tmp_table  = mysql_num_rows($tmp_req);
+}
 if ($tmp_table == 0) {
     $file = LOCAL_INCLUDE.'homepage.sql';
     /**
-     * [fr]Fichier de création de table fonctionnant pour les bases local
+     * [fr]Fichier de crÃ©ation de table fonctionnant pour les bases local
      * [en]File of creation of table functioning for the bases room
      */
     require_once(LOCAL_INCLUDE.'create_table.inc.php');
 }
 /**
- * [fr] Nettoyage de la base de données
+ * [fr] Nettoyage de la base de donnÃ©es
  */
-$query_net         = 'SELECT `id` FROM `homepage` WHERE mise_en_page_id = 0 AND rubriques_id = \'\'';
-$req_net           = mysql_query ($query_net);
-$res_net           = mysql_num_rows($req_net);
+$query_net         = 'SELECT `id` FROM `homepage` WHERE `mise_en_page_id` = 0 AND `rubriques_id` = \'\'';
+if (strnatcmp(phpversion(),'4.3.7') >= 0)
+{
+	// mysqli
+	if ($tmp_req = mysqli_prepare($link, $query_net)) {
+		/* execute query */
+		mysqli_stmt_execute($tmp_req);
+
+		/* store result */
+		mysqli_stmt_store_result($tmp_req);
+		$res_net  = mysqli_stmt_num_rows($tmp_req);
+
+		/* close statement */
+		mysqli_stmt_close($tmp_req);
+	}
+} else {
+	$req_net           = mysql_query ($query_net);
+	$res_net           = mysql_num_rows($req_net);
+}
+//echo '$res_net='.$res_net;
 if ($res_net > 9) {
-    $query_delete      = 'DELETE FROM `homepage` WHERE mise_en_page_id = 0 AND rubriques_id = \'\'';
+    $query_delete      = 'DELETE FROM `homepage` WHERE `mise_en_page_id` = 0 AND `rubriques_id` = \'\'';
     mysql_query ($query_delete);
     $query_net            = 'SELECT `id` FROM rubriques WHERE actif = 1';
     $req_net              = mysql_query ($query_net);
@@ -73,7 +109,7 @@ if ($res_net > 9) {
     $query_delete      = 'DELETE FROM `liens` WHERE actif = 1';
     mysql_query ($query_delete);
     /**
-     * [fr] optimisation de la base de données
+     * [fr] optimisation de la base de donnÃ©es
      */
     $query_optimize    = 'OPTIMIZE TABLE `homepage`';
     mysql_query ($query_optimize);
@@ -86,26 +122,25 @@ if ($res_net > 9) {
     mysql_query ($query_optimize);
     }
 /**
- * [fr] Affichage du formulaire d'entrée
+ * [fr] Affichage du formulaire d'entrÃ©e
  */
 echo "\n";
-echo '        <p>'.$cfg_font_3_n.$lang_Accueil.' <b>'.$cfg_Version.'</b>'.$cfg_font_fin."</p>\n";
-echo '        <p>'.$cfg_font_2_n.$lang_NvellePage.$cfg_font_fin."</p>\n";
-echo '        <form name="identification" method="post" action="php_homepage.php">'."\n";
-echo '            <table width="100%" border="0" cellspacing="0" cellpadding="0">'."\n";
-echo '                <tr>'."\n";
-echo '                    <td width="100">'.$cfg_font_1_n.$lang_Nom.$cfg_font_fin.'</td>'."\n";
-echo '                    <td><input type="text" '.$cfg_Formulaire.' name="homepage" maxlength="255" size="20"></td>'."\n";
-echo '                </tr>'."\n";
-echo '                <tr>'."\n";
-echo '                    <td width="100">&nbsp;</td>'."\n";
-echo '                    <td><input type="submit" '.$cfg_Formulaire.' name="Submit" value="'.$lang_Creer.'"></td>'."\n";
-echo '                </tr>'."\n";
-echo '            </table>'."\n";
-echo '        </form>'."\n";
-echo '        <p><a href="http://validator.w3.org/check/referer"><img border="0" src="http://www.w3.org/Icons/valid-html401" alt="Valid HTML 4.01!" height="31" width="88"></a></p>';
+echo '                <div class="col-md-12">
+                    <h2 class="text-center">'.$lang_NvellePage."</h2><br /> \n";
+echo '                    <form role="form" class="form-inline text-center" name="identification" method="post" action="php_homepage.php">'."\n";
+echo '                        <div class="form-group">'."\n";
+echo '                            <label for="homepage">'.$lang_Nom.'</label>'."\n";
+echo '                            <div class="input-group">'."\n";
+echo '                                <div class="input-group-addon"><span class="glyphicon glyphicon-home"></span></div>'."\n";
+echo '                                <input class="form-control" id="homepage" type="text" name="homepage" placeholder="'.$lang_NomPlaceolder.'" />'."\n";
+echo '                            </div>'."\n";
+echo '                            <button type="submit" class="btn btn-success">Valider <span class="glyphicon glyphicon-chevron-right icon-white"></span></button>'."\n";
+echo '                        </div>'."\n";
+echo '                    </form>
+                </div>'."\n";
+//echo '        <p><a href="http://validator.w3.org/check/referer"><img src="http://www.w3.org/Icons/valid-html401" alt="Valid HTML 4.01!" height="31" width="88" /></a></p>';
+echo '                <div class="text-center" style="margin-top:20px;"> <br />&nbsp;<br /><a href="http://www.phphomepage.net" title="www.phphomepage.net" target="_blank" class="btn btn-mini">Copyright Â© 2001-'.date('Y').' phphomepage.net<br />All Rights Reserved.</a></div>';
 /**
- * [fr]Fichier qui génére le code de fin de page HTML commun à tous les fichiers
+ * [fr]Fichier qui gÃ©nÃ©re le code de fin de page HTML commun Ã  tous les fichiers
  */
 require_once(LOCAL_INCLUDE.'stop_html.inc.php');
-?>

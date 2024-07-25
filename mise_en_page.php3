@@ -1,13 +1,14 @@
 <?
 // Nom : Php_Homepage
-// Version : 1.2
-// Date : 10/01/2001
+// Version : 1.3
+// Date : 11/01/2001
 // Auteur : Eric BLAS
 // email : ericb@newsinvest.fr
 // Description : Fichier de mise en page de la homepage
+//               File of formatting of the homepage
 
-require("config.inc.php3");
-require("lang_$cfgLang.inc.php3");
+require("./config.inc.php3");
+require("./lang_$cfgLang.inc.php3");
 ?>
  <html>
  <head>

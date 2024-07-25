@@ -1,13 +1,14 @@
 <?
 // Nom : Php_Homepage
-// Version : 1.2
-// Date : 10/01/2001
+// Version : 1.3
+// Date : 11/01/2001
 // Auteur : Eric BLAS
 // email : ericb@newsinvest.fr
 // Description : Fichier d'ajout de rubrique de la homepage
+//               File of addition of headings of the homepage
 
-require("config.inc.php3");
-require("lang_$cfgLang.inc.php3");
+require("./config.inc.php3");
+require("./lang_$cfgLang.inc.php3");
 ?>
  <html>
  <head>
@@ -21,6 +22,34 @@ require("lang_$cfgLang.inc.php3");
 $query1            = "SELECT * FROM homepage WHERE nom = '$homepage'";
 $req1              = mysql_query ($query1);
 $rubriques_id      = mysql_result($req1,0,"rubriques_id");
+?>
+<?
+function choix_rubrique($select)
+ {GLOBAL $homepage;
+  GLOBAL $cfgBase;
+  GLOBAL $choix_rubrique;
+  $query2       = "SELECT * FROM homepage WHERE nom = '$homepage'";
+  $req2         = mysql_db_query ($cfgBase,$query2);
+  $rubriques_id = mysql_result($req2,0,"rubriques_id");
+  $rubrique     = explode ("-",$rubriques_id);
+  $i            = 0;
+  WHILE($i<count($rubrique))
+   {$query3       = "SELECT * FROM rubriques WHERE id = $rubrique[$i]";
+    $req3         = mysql_db_query ($cfgBase,$query3);
+    $res3         = mysql_numrows($req3);
+    $id           = mysql_result($req3,0,"id");
+    $titre        = mysql_result($req3,0,"titre");
+    $actif        = mysql_result($req3,0,"actif");
+    if ($actif != 1)
+     {print "<option value=\"$id\"";
+      if ($choix_rubrique == $id  && $select == 1)
+       {print "selected";
+       }
+      print "> $titre</option>\n";
+     }
+    $i++;
+   };
+ }
 ?>
 <?
 if (isset($creer_nom))
@@ -74,29 +103,6 @@ if (isset($choix_rubrique))
  }
 // $choix_rubrique $new_nom $nvelle_position
 ?>
-<?
-function choix_rubrique()
- {GLOBAL $homepage;
-  GLOBAL $cfgBase;
-  $query2       = "SELECT * FROM homepage WHERE nom = '$homepage'";
-  $req2         = mysql_db_query ($cfgBase,$query2);
-  $rubriques_id = mysql_result($req2,0,"rubriques_id");
-  $rubrique     = explode ("-",$rubriques_id);
-  $i            = 0;
-  WHILE($i<count($rubrique))
-   {$query3       = "SELECT * FROM rubriques WHERE id = $rubrique[$i]";
-    $req3         = mysql_db_query ($cfgBase,$query3);
-    $res3         = mysql_numrows($req3);
-    $id           = mysql_result($req3,0,"id");
-    $titre        = mysql_result($req3,0,"titre");
-    $actif        = mysql_result($req3,0,"actif");
-    if ($actif != 1)
-     {print "<option value=\"$id\"> $titre</option>\n";
-     }
-    $i++;
-   };
- }
-?>
 <?print "$cfgfont_3_n <b>$langRubrique</b> $cfgfont_fin"?>
  <form method="post" action="ajout_rubrique.php3" name="ajout_rubrique">
   <input type="hidden" name="homepage" value="<? print $homepage ?>">
@@ -139,7 +145,7 @@ function choix_rubrique()
   <?print "$cfgfont_2_n $langSuppRubrique $cfgfont_fin"?><br><br>
     <select name="sup_rubrique" <?print $cfgFormulaire?> size="1">
     <option  value="" selected><?print $langChoixRubrique?></option>
-    <?choix_rubrique();?>
+    <?choix_rubrique(0);?>
   </select>
   <br>
   <input type="submit" <?print $cfgFormulaire?> name="Submit" value="<?print $langSupprimer?>">
@@ -149,13 +155,13 @@ function choix_rubrique()
   <?print "$cfgfont_2_n $langModifUneRubrique $cfgfont_fin"?><br><br>
     <select name="choix_rubrique" <?print $cfgFormulaire?> size="1">
     <option value="" selected><?print $langChoixRubrique?></option>
-    <?choix_rubrique();?>
+    <?choix_rubrique(1);?>
   </select>
   <br>
   <?print "$cfgfont_1_n $langNom $cfgfont_fin"?>
-  <input type="text" <?print $cfgFormulaire?> name="new_nom" size="20" maxlength="255">
+  <input type="text" <?print $cfgFormulaire?> name="new_nom" size="20" maxlength="255" value="<?print $new_nom?>">
   <?print "$cfgfont_1_n $langPlace $cfgfont_fin"?>
-  <input type="text" <?print $cfgFormulaire?> name="nvelle_position" size="2" maxlength="2"><br>
+  <input type="text" <?print $cfgFormulaire?> name="nvelle_position" size="2" maxlength="2"  value="<?print $nvelle_position?>"><br>
   <input type="submit" <?print $cfgFormulaire?> name="Submit" value="<?print $langModifier?>">
  </form>
  <? }?>

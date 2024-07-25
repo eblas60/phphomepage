@@ -1,13 +1,14 @@
 <?
 // Nom : Php_Homepage
-// Version : 1.2
-// Date : 10/01/2001
+// Version : 1.3
+// Date : 11/01/2001
 // Auteur : Eric BLAS (d'après un script de Pyxos)
 // email : ericb@newsinvest.fr (pyxos@fairesuivre.com)
 // Description : Fichier de creation de table fonctionnant pour les bases local
+//               File of creation of table functioning for the bases room
 
-require("config.inc.php3");
-require("lang_$cfgLang.inc.php3");
+require("./config.inc.php3");
+require("./lang_$cfgLang.inc.php3");
 ?>
  <html>
  <head>

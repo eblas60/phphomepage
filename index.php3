@@ -1,13 +1,14 @@
 <?
 // Nom : Php_Homepage
-// Version : 1.2
-// Date : 10/01/2001
+// Version : 1.3
+// Date : 11/01/2001
 // Auteur : Eric BLAS
 // email : ericb@newsinvest.fr
 // Description : Fichier d'identification
+//               File of identification
 
-require("config.inc.php3");
-require("lang_$cfgLang.inc.php3");
+require("./config.inc.php3");
+require("./lang_$cfgLang.inc.php3");
 
 // creation des tables dans la base
 $req = mysql_list_tables ($cfgBase );
@@ -15,7 +16,7 @@ $tables = mysql_num_rows ($req);
 
 if ($tables == 0 )
  {$file = "homepage.sql";
-  require("create_table.inc.php3");
+  require("./create_table.inc.php3");
  }
 ?>
  <html>

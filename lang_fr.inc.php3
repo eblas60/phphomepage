@@ -1,7 +1,7 @@
 <?
 // Nom : Php_Homepage
-// Version : 1.2
-// Date : 10/01/2001
+// Version : 1.3
+// Date : 11/01/2001
 // Auteur : Eric BLAS
 // email : ericb@newsinvest.fr
 // Description : Fichier de langue francaise
@@ -14,9 +14,7 @@ $langAccueil                 = "Bienvenue sur";
 $langNvellePage              = "Pour cr&eacute;er ou modifier une page de d&eacute;marrage :";
 $langGenereTable             = "Cliquer ici pour cr&eacute;er vos tables";
 $langErreurNom               = "Vous devez rentrer un <b>NOM</b> dans un des champs de formulaire !";
-$langErreurHomepage          = "Cette page de d&eacute;marrage n'existe pas !";
-$langExistHomepage           = "Cette page de d&eacute;marrage existe d&eacute;j&agrave; !<br> Merci d'en choisir un autre";
-$langFrame                   = "Cette application fonctionne avec des navigateurs gérants les frames.";
+$langFrame                   = "Cette application fonctionne avec des navigateurs g&eacute;rants les frames.";
 $lang1                       = "1 . Cr&eacute;er des rubriques";
 $lang2                       = "2 . Ajouter des liens";
 $lang3                       = "3 . Cr&eacute;er votre mise en page";
@@ -38,17 +36,17 @@ $langChoixRubrique           = "Choisir la rubrique";
 $langErrorRubNom             = "Vous devez entrer un nom !";
 $langErrorRubPosition        = "Vous devez entrer une Position !";
 $langRubOK                   = "La rubrique a &eacute;t&eacute; cr&eacute;&eacute;e";
-$langErrorRubSupp            = "Vous devez choisr une rubrique &agrave; supprimer !";
+$langErrorRubSupp            = "Vous devez choisir une rubrique &agrave; supprimer !";
 $langRubSupp                 = "La rubrique a &eacute;t&eacute; supprim&eacute;";
-$langErrorRubModif           = "Vous devez choisr une rubrique &agrave; modifier !";
+$langErrorRubModif           = "Vous devez choisir une rubrique &agrave; modifier !";
 $langErrorRubNomPlace        = "Vous devez saisir un nom et une place !";
 $langModifRubOK              = "La rubrique a &eacute;t&eacute; modifi&eacute;";
-$langErrorLienRub            = "Il Faut d'abord cr&eacute;er au moins une rubrique";
+$langErrorLienRub            = "Il faut d'abord cr&eacute;er au moins <B>1</B> rubrique";
 $langLienChoix               = "Choisir un lien";
 $langLienNew                 = "Cr&eacute;er un nouveau lien";
 $langLienSup                 = "Supprimer un lien";
 $langLien                    = "Les Liens";
-$langErrorLienSup            = "Vous devez choisr un lien &agrave; supprimer !";
+$langErrorLienSup            = "Vous devez choisir un lien &agrave; supprimer !";
 $langLienSupOK               = "Le lien a &eacute;t&eacute; supprim&eacute;";
 $langLienNom                 = "Vous devez saisir un nom !";
 $langLienURL                 = "Vous devez saisir une URL !";

@@ -1,7 +1,7 @@
 <?
 // Nom : Php_Homepage
-// Version : 1.1
-// Date : 09/01/2001
+// Version : 1.2
+// Date : 10/01/2001
 // Auteur : Eric BLAS
 // email : ericb@newsinvest.fr
 // Description : Fichier d'accueil de création de homepage

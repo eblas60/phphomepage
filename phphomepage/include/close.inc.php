@@ -1,11 +1,11 @@
 <?php
 /**
- * [fr]Fichier de clôture de connection à la base
+ * [fr]Fichier de cloture de connection a la base
  * [en]File closing database conexion
  *
  * @copyright	11/06/2021
  * @since		09/01/2001
- * @version		1.9
+ * @version		1.10
  * @module		homepage
  * @modulegroup	homepage
  * @package		php_homepage

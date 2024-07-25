@@ -1,11 +1,11 @@
 <?php
 /**
- * [fr]Fichier de création de table fonctionnant pour les bases local
+ * [fr]Fichier de creation de table fonctionnant pour les bases local
  * [en]File of creation of table functioning for the bases room
  *
  * @copyright	11/06/2021
  * @since		09/01/2001
- * @version		1.9
+ * @version		1.10
  * @module		homepage
  * @modulegroup	homepage
  * @package		php_homepage

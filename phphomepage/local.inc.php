@@ -1,11 +1,11 @@
 <?php
 /**
- * [fr]Fichier qui contient divers paramètres locaux
+ * [fr]Fichier qui contient divers parametres locaux
  * [en]File which contains various local parameters
  *
  * @copyright	20/12/2016
  * @since		09/01/2001
- * @version		1.8
+ * @version		1.10
  * @module		homepage
  * @modulegroup	homepage
  * @package		php_homepage
@@ -14,7 +14,7 @@
  */
 /**
  * [fr]Variable pour fixer le dossier d'include
- * Laisser vide si vous pouvez utiliser un fichier .htaccess, sinon mettre les chemins réels
+ * Laisser vide si vous pouvez utiliser un fichier .htaccess, sinon mettre les chemins rï¿½els
  * [en]Variable to fix the file of include
  * To leave empty if you could use a .htaccess file, if not put the real path
  *

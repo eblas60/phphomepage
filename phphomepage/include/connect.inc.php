@@ -1,11 +1,11 @@
 <?php
 /**
- * [fr]Fichier de connection à la base
- * [en]File database conexion
+ * [fr]Fichier de connection de la base
+ * [en]File database connexion
  *
  * @copyright	11/06/2021
  * @since		09/01/2001
- * @version		1.9
+ * @version		1.10
  * @module		homepage
  * @modulegroup	homepage
  * @package		php_homepage

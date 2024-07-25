@@ -5,62 +5,6 @@
  * # Fix
  */
 
-11-juin-2021 : v1.9
- # Corrections de quelques bugs
- + Mise à jour Boostrap 5
-
-20-décembre-2016 : v1.8
- + Ajout de Bootstrap (amélioration graphique de l'admin)
- + Ajout d'une classe BDD pour être compatible PHP > 5.3
- # Correction du code source HTML5 pour le rendre plus compatible avec les normes W3C
- # Corrections de quelques bugs
- # Amélioration de la page de listing des liens pour écran tactile
-
-04-janvier-2013 v 1.7
- # Petite optimisation pour les smartphones et tablettes tactile
- # Correction du code source HTML5 pour le rendre W3C
- + Ajout de balise Robot noindex
- + Modification du tri d'affichage des catégories pour qu'il soit dans l'ordre alphabétique
- + Ajout de la gestion de lien double sur une même ligne exemple (le début du 2ème lien doit être identique au précédent) :
-   lien 1 = Mon site web
-   lien 2 = Mon site web - Administration (ou autre lien)
-   donne à l'affichage
-   <a href="http://lien-1/">Mon site web</a> - <a href="http://lien-2/">Administration (ou autre lien)</a>
-
-21-septembre-2005 : v1.6a
- # Correction de quelques bugs
-
-20-mars-2004 : v1.6
- # Correction grammaticale des commentaires
- # correction du bug d'ajout d'un nouveau compte pour une compatibilité PHP4 >= 4.1
- + nettoyage automatique de la base
- + modification des liens
-
-16-novembre-2003 : v1.5
- + Commentaire au norme de phpdoc (http://www.phpdoc.de/)
- ^ Amélioration du codage pour un affichage plus rapide
- # Passage en PHP4
- # Mise au norme du w3c
- + Ajout de la langue russe fourni par Lord (Kox@smtp.ru)
- # Correction de quelque petit bug
-
-19-janvier-2001 : v1.4a
- # Quelques corrections de bug mineur pour une meilleur installation
-
-09-aout-2001 : v1.4
- ^ Restructuration de phphomepage (apparition du dossier localisation)
- ^ Amélioration du codage
- # Meilleur intégration de la langue
-
-11-janvier-2001 : v1.3
- + Inclusion du fichier anglais
- # Correction de quelques bugs
-
-10-janvier-2001 : v1.2
- + Création d'un fichier de langue
- + Possibilité de mettre en anglais (non fourni)
- # Correction de quelques bug
-
 09-janvier-2001 : v1.1
  ^ Première version en ligne
  ^ Français exclusivement

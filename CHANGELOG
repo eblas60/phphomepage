@@ -5,6 +5,12 @@
  * # Fix
  */
 
+20-mars-2004 : v1.6
+ # Correction grammaticale des commentaires
+ # correction du bug d'ajout d'un nouveau compte pour une compatibilité PHP4 >= 4.1
+ + nettoyage automatique de la base
+ + modification des liens
+
 16-novembre-2003 : v1.5
  + Commentaire au norme de phpdoc (http://www.phpdoc.de/)
  ^ Amélioration du codage pour un affichage plus rapide

@@ -3,9 +3,9 @@
  * [fr]Fichier de gestion des homepages
  * [en]File of management of the homepage
  *
- * @copyright    16/11/2003
+ * @copyright    20/03/2004
  * @since	     09/01/2001
- * @version      1.5
+ * @version      1.6
  * @module       php_homepage
  * @modulegroup  php_homepage
  * @package      php_homepage
@@ -24,7 +24,7 @@ echo "\n";
 /**
  * [fr]Si le nom de la page n'est pas passé par le formulaire on renvoie sur la page de démarrage
  */
-if (empty($homepage)) {
+if (empty($_GET['homepage']) AND empty($_POST['homepage']) AND empty($homepage)) {
     echo '        '.$cfg_font_2_r.$lang_ErreurNom."<br>\n";
     echo '        <a href="index.php">index.php</a>'.$cfg_font_fin;
 } else {
@@ -37,8 +37,12 @@ if (empty($homepage)) {
     require_once(LOCAL_INCLUDE.'navig.inc.php');
     echo '                </td>'."\n";
     echo '                <td valign="top">'."\n";
-    if (empty($page)) {
+    if (empty($_GET['page']) AND empty($_POST['page']) AND empty($page)) {
         $page = '';
+    } elseif (empty($_POST['page'])) {
+        $page = $_GET['page'];
+    } else {
+        $page = $_POST['page'];
     }
     if ($page == 'rubrique') {
         /**

@@ -1,9 +1,9 @@
 /**
  * Php_Homepage
  *
- * @copyright    15/11/2003
- * @since	     09/01/2001
- * @version      1.5
+ * @copyright    20/03/2004
+ * @since        09/01/2001
+ * @version      1.6
  * @author       Eric BLAS <webmaster@phphomepage.net>
  */
 
@@ -36,6 +36,12 @@ Utilisation
 -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 Mise à jour
 -----------
+v 1.6 (20/03/2004)
+- Correction grammaticale des comentaires
+- correction du bug d'ajout d'un nouveau compte pour une compatibilité PHP4 >= 4.1
+- nettoyage automatique de la base
+- modification des liens
+
 v 1.5 (16/11/2003)
 - Commentaire au norme de phpdoc (http://www.phpdoc.de/)
 - Amélioration du codage pour un affichage plus rapide

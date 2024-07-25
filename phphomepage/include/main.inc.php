@@ -3,9 +3,9 @@
  * [fr]Fichier d'accueil de création de homepage
  * [en]File of greeting of creation of homepage
  *
- * @copyright    16/11/2003
+ * @copyright    22/03/2004
  * @since	     09/01/2001
- * @version      1.5
+ * @version      1.6
  * @module       main
  * @modulegroup  include
  * @package      php_homepage
@@ -35,10 +35,16 @@ if ($res1 == '' OR $rubriques_id == '') {
      * [fr]Enfin on récapitule les infos contenus dans la page
      */
     echo '                    <p>'.$cfg_font_2_n.$lang_Constituer1.' <b>'.$homepage.'</b> '.$lang_Constituer2.$cfg_font_fin."</p>\n";
-    if (strstr($rubriques_id,'-')) {
-        $rubrique     = explode ('-',$rubriques_id);
+    if (substr($rubriques_id, 0 ,1) != '-') {
+        $rubriques_id = '-'.$rubriques_id;
+    }
+    if (substr($rubriques_id, -1) != '-') {
+        $rubriques_id = $rubriques_id.'-';
+    }
+    if (strstr(substr($rubriques_id, 1, -1),'-')) {
+        $rubrique     = explode ('-',substr($rubriques_id, 1, -1));
     } else {
-        $rubrique     = array(0=>$rubriques_id);
+        $rubrique     = array(0=>substr($rubriques_id, 1, -1));
     }
     $i            = 0;
     WHILE($i<count($rubrique)) {
@@ -52,7 +58,7 @@ if ($res1 == '' OR $rubriques_id == '') {
             echo '                    <p>'.$cfg_font_1_n.' <b>'.$nom_rubrique.'</b> '.$lang_Position.' '.$place_rubrique.$cfg_font_fin."</p>\n";
             $query3         = 'SELECT `id`, `titre`, `url`, `actif` FROM liens WHERE rubrique_id = '.$rubrique[$i];
             $req3           = mysql_query ($query3);
-            $res3           = mysql_numrows($req3);
+            $res3           = mysql_num_rows($req3);
             $j              = 0;
             WHILE($res3 != $j) {
                 $id_lien        = mysql_result($req3,$j,'id');

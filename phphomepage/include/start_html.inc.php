@@ -3,9 +3,9 @@
  * [fr]Fichier qui génére le code de l'entête HTML commun à tous les fichiers
  * [en]File which génére the code of heading HTML common to all the files
  *
- * @copyright    15/11/2003
+ * @copyright    20/03/2003
  * @since	     09/08/2001
- * @version      1.5
+ * @version      1.6
  * @module       star_html
  * @modulegroup  include
  * @package      php_homepage
@@ -34,6 +34,14 @@ echo '<HTML>'."\n";
 echo '    <HEAD>'."\n";
 echo '        <TITLE>'.$cfg_Version.'</TITLE>'."\n";
 echo '        <META http-equiv="Content-Type" content="text/html; charset='.$cfg_charset.'">'."\n";
+
+if (empty($homepage)){
+    if (!empty($_GET['homepage'])) {
+        $homepage = $_GET['homepage'];
+    } elseif (!empty($_POST['homepage'])){
+        $homepage = $_POST['homepage'];
+    }
+}
 if (!empty($homepage)) {
     echo '        <LINK rel="stylesheet" href="include/style.css">'."\n";
 }

@@ -3,18 +3,21 @@
  * [fr]Fichier de navigation pour un ajout de homepage
  * [en]File of navigation for an addition of homepage
  *
- * @copyright    16/11/2003
+ * @copyright    22/03/2004
  * @since	     09/01/2001
- * @version      1.5
+ * @version      1.6
  * @module       navig
  * @modulegroup  include
  * @package      php_homepage
  * @access	     public
  * @author       Eric BLAS <webmaster@phphomepage.net>
  */
+/**
+ * [fr] Récupération des infos
+ */
 $query1            = 'SELECT `rubriques_id`,`mise_en_page_id` FROM homepage WHERE nom = \''.$homepage.'\'';
 $req1              = mysql_query ($query1);
-$res1              = mysql_numrows($req1);
+$res1              = mysql_num_rows($req1);
 if ($res1 != '') {
     $rubriques_id      = mysql_result($req1,0,'rubriques_id');
     $mise_en_page_id   = mysql_result($req1,0,'mise_en_page_id');

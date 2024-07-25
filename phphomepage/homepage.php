@@ -3,9 +3,9 @@
  * [fr]Votre page de démarrage
  * [en]Your homepage
  *
- * @copyright    16/11/2003
+ * @copyright    20/03/2004
  * @since	     09/01/2001
- * @version      1.5
+ * @version      1.6
  * @module       homepage
  * @modulegroup  homepage
  * @package      php_homepage
@@ -13,7 +13,14 @@
  * @author       Eric BLAS <webmaster@phphomepage.net>
  */
 if (empty($homepage)){
-header ("Location: index.php");
+    if (!empty($_GET['homepage'])) {
+        $homepage = $_GET['homepage'];
+    } elseif (!empty($_POST['homepage'])){
+        $homepage = $_POST['homepage'];
+    }
+}
+if (empty($homepage)){
+    header ("Location: index.php");
 }
 /**
  * [fr]Fichier qui contient divers paramètres locaux

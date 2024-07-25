@@ -3,9 +3,9 @@
  * [fr]Fichier d'ajout de rubrique de la homepage
  * [en]File of addition of headings of the homepage
  *
- * @copyright    16/11/2003
+ * @copyright    22/03/2004
  * @since	     09/01/2001
- * @version      1.5
+ * @version      1.6
  * @module       rubrique
  * @modulegroup  include
  * @package      php_homepage
@@ -15,23 +15,51 @@
 /**
  * [fr]Gestion des diverses erreurs
  */
-if (isset($creer_nom)) {
-    if ($creer_nom == '') {
+if (empty($creer_nom) AND !empty($_POST['creer_nom'])) {
+    $creer_nom = $_POST['creer_nom'];
+}
+if (empty($position) AND !empty($_POST['position'])) {
+    $position = $_POST['position'];
+}
+if (empty($sup_rubrique) AND !empty($_POST['sup_rubrique'])) {
+    $sup_rubrique = $_POST['sup_rubrique'];
+}
+if (empty($choix_rubrique) AND !empty($_POST['choix_rubrique'])) {
+    $choix_rubrique = $_POST['choix_rubrique'];
+}
+if (empty($new_nom) AND !empty($_POST['new_nom'])) {
+    $new_nom = $_POST['new_nom'];
+}
+if (empty($nvelle_position) AND !empty($_POST['nvelle_position'])) {
+    $nvelle_position = $_POST['nvelle_position'];
+}
+if (isset($creer_nom) OR isset($_POST['creer_nom'])) {
+    if (empty($_POST['creer_nom']) OR $creer_nom == '') {
         echo '                    '.$cfg_font_1_r.'<b>'.$lang_ErrorRubNom.'</b>'.$cfg_font_fin."<br>\n";
+        $creer_nom = '';
     }
-    if ($position == '') {
-        echo '                    '.$cfg_font_1_r.'<b>'.$lang_ErrorRubPosition.'</b>'.$cfg_font_fin."<br>\n";;
+    if (empty($_POST['position']) OR $position == '') {
+        echo '                    '.$cfg_font_1_r.'<b>'.$lang_ErrorRubPosition.'</b>'.$cfg_font_fin."<br>\n";
+        $position = '';
+    } elseif ($position > ($cfg_NbrLignes * $cfg_NbrColonnes)) {
+        echo '                    '.$cfg_font_1_r.'<b>'.$lang_ErrorRubPositionSup.'</b>'.$cfg_font_fin."<br>\n";
+        $position = '';
     }
     if ($creer_nom != '' AND $position != '') {
-        echo '                    '.$cfg_font_1_r.'<b>'.$lang_RubOK.'</b>'.$cfg_font_fin."<br>\n";
+        echo '                    '.$cfg_font_1_v.'<b>'.$lang_RubOK.'</b>'.$cfg_font_fin."<br>\n";
         $query2          = 'INSERT INTO rubriques VALUES'."('','','".$creer_nom."','".$position."')";
         mysql_query ($query2);
         $new_rubrique_id = mysql_insert_id();
         if ($rubriques_id != '') {
-            $old_rubriques_id = mysql_result($req1,0,'rubriques_id');
-            $new_rubriques_id = $rubriques_id.'-'.$new_rubrique_id;
+            if (substr($rubriques_id, 0 ,1) != '-') {
+                $rubriques_id = '-'.$rubriques_id;
+            }
+            if (substr($rubriques_id, -1) != '-') {
+                $rubriques_id = $rubriques_id.'-';
+            }
+            $new_rubriques_id = $rubriques_id.$new_rubrique_id.'-';
         } else {
-            $new_rubriques_id = $new_rubrique_id;
+            $new_rubriques_id = '-'.$new_rubrique_id.'-';
         }
         $query2          = 'UPDATE homepage SET rubriques_id=\''.$new_rubriques_id.'\' WHERE nom = \''.$homepage.'\'';
         mysql_query ($query2);
@@ -40,24 +68,34 @@ if (isset($creer_nom)) {
         $position = '';
     }
 }
-if (isset($sup_rubrique)) {
-    if ($sup_rubrique == '') {
+if (isset($sup_rubrique) OR isset($_POST['sup_rubrique'])) {
+    if (empty($_POST['sup_rubrique']) OR $sup_rubrique == '') {
         echo '                    '.$cfg_font_1_r.'<b>'.$lang_ErrorRubSupp.'</b>'.$cfg_font_fin."<br>\n";
     } else {
-        echo '                    '.$cfg_font_1_r.'<b>'.$lang_RubSupp.'</b>'.$cfg_font_fin."<br>\n";
+        echo '                    '.$cfg_font_1_v.'<b>'.$lang_RubSupp.'</b>'.$cfg_font_fin."<br>\n";
         $query3          = 'UPDATE rubriques SET actif = 1 WHERE id = '.$sup_rubrique;
         mysql_query ($query3);
+        $query4          = 'UPDATE liens SET actif = 1 WHERE rubrique_id = '.$sup_rubrique;
+        mysql_query ($query4);
     }
 }
-if (isset($choix_rubrique)) {
-    if ($choix_rubrique == '') {
+if (isset($choix_rubrique) OR isset($_POST['choix_rubrique'])) {
+    if (empty($_POST['choix_rubrique']) OR $choix_rubrique == '') {
         echo '                    '.$cfg_font_1_r.'<b>'.$lang_ErrorRubModif.'</b>'.$cfg_font_fin."<br>\n";
-    } elseif ($new_nom == '' OR $nvelle_position == '') {
+    }
+    if (empty($_POST['new_nom']) OR $new_nom == '') {
         echo '                    '.$cfg_font_1_r.'<b>'.$lang_ErrorRubNomPlace.'</b>'.$cfg_font_fin."<br>\n";
+        $new_nom = '';
+    } elseif (empty($_POST['nvelle_position']) OR $nvelle_position == '') {
+        echo '                    '.$cfg_font_1_r.'<b>'.$lang_ErrorRubPosition.'</b>'.$cfg_font_fin."<br>\n";
+        $nvelle_position = '';
+    } elseif ($nvelle_position > ($cfg_NbrLignes * $cfg_NbrColonnes)) {
+        echo '                    '.$cfg_font_1_r.'<b>'.$lang_ErrorRubPositionSup.'</b>'.$cfg_font_fin."<br>\n";
+        $nvelle_position = '';
     } else {
-        echo '                    '.$cfg_font_1_r.'<b>'.$lang_ModifRubOK.'</b>'.$cfg_font_fin."<br>\n";
-        $query4          = "UPDATE rubriques SET titre='$new_nom', position='$nvelle_position' WHERE id='$choix_rubrique'";
-        mysql_query ($query4);
+        echo '                    '.$cfg_font_1_v.'<b>'.$lang_ModifRubOK.'</b>'.$cfg_font_fin."<br>\n";
+        $query5          = "UPDATE rubriques SET titre='$new_nom', position='$nvelle_position' WHERE id='$choix_rubrique'";
+        mysql_query ($query5);
     }
 }
 /**

@@ -3,9 +3,9 @@
  * [fr]Fichier qui contient divers paramètres locaux
  * [en]File which contains various local parameters
  *
- * @copyright    15/11/2003
+ * @copyright    20/03/2004
  * @since	     09/08/2001
- * @version      1.5
+ * @version      1.6
  * @module       local
  * @modulegroup  librairie
  * @package      php_homepage
@@ -14,7 +14,7 @@
  */
 /**
  * [fr]Variable pour fixer le dossier d'include
- * Laisser vide si vous pouvais utiliser un fichier .htaccess, sinon mettre les chemins réels
+ * Laisser vide si vous pouvez utiliser un fichier .htaccess, sinon mettre les chemins réels
  * [en]Variable to fix the file of include
  * To leave empty if you could use a .htaccess file, if not put the real path
  *

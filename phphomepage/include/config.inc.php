@@ -1,11 +1,11 @@
-<?
+<?php
 /**
  * [fr]Fichier de configuration
  * [en]File configuration
  *
- * @copyright    23/11/2003
+ * @copyright    22/03/2004
  * @since	     09/01/2001
- * @version      1.5a
+ * @version      1.6
  * @module       config
  * @modulegroup  include
  * @package      php_homepage
@@ -33,7 +33,7 @@ else
 
 // Environnement
 // Environment
-$cfg_Version     = 'Php Homepage v1.5a';
+$cfg_Version     = 'Php Homepage v1.6';
 
 // Couleur de fond de cellule pour les tableaux
 // Background color of cell for the table
@@ -62,19 +62,28 @@ $cfg_AlinkIndex  = '0000FF';       // Couleur des liens
 
 // Polices
 // Fonts
+    // pour l'index et la colonne droite
+    // for the index and the column right
 $cfg_font_1_n    = '<font face="Verdana, Arial, Helvetica, sans-serif" size="1" color="#000000">';
 $cfg_font_2_n    = '<font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#000000">';
-$cfg_font_3_n    = '<font face="Verdana, Arial, Helvetica, sans-serif" size="3" color="#000000">'; // pour l'index et la colonne droite
-                                                                                                        // for the index and the column right
+$cfg_font_3_n    = '<font face="Verdana, Arial, Helvetica, sans-serif" size="3" color="#000000">';
+    // pour la colonne Gauche
+    // for the column Left
 $cfg_font_1_b    = '<font face="Verdana, Arial, Helvetica, sans-serif" size="1" color="#FFFFFF">';
 $cfg_font_2_b    = '<font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#FFFFFF">';
-$cfg_font_3_b    = '<font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#FFFFFF">'; // pour la colonne Gauche
-                                                                                                        // for the column Left
+$cfg_font_3_b    = '<font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#FFFFFF">';
+    // pour les messages d'erreur
+    // for the error messages
 $cfg_font_1_r    = '<font face="Verdana, Arial, Helvetica, sans-serif" size="1" color="#FF0000">';
-$cfg_font_2_r    = '<font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#FF0000">'; // pour les messages d'erreur
-                                                                                                        // for the error messages
-$cfg_Formulaire  = 'style="font-size:10px; font-family: verdana, arial, helvetica, sans-serif;"';      // pour les formulaires
-                                                                                                        // for the forms
+$cfg_font_2_r    = '<font face="Verdana, Arial, Helvetica, sans-serif" size="2" color="#FF0000">';
+    // si les infos passé sont bonnes
+    // if the informations are good
+$cfg_font_1_v    = '<font face="Verdana, Arial, Helvetica, sans-serif" size="1" color="#22CC22">';
+    // pour les formulaires
+    // for the forms
+$cfg_Formulaire  = 'style="font-size:10px; font-family: verdana, arial, helvetica, sans-serif;"';
+    // balise de fermeture
+    // closing balise
 $cfg_font_fin    = '</font>';
 
 // variable de nombre de lignes du tableau pour placer les rubriques dans la page

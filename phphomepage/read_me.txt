@@ -1,9 +1,9 @@
 /**
  * Php_Homepage
  *
- * @copyright    15/11/2003
- * @since	     15/11/2003
- * @version      1.5
+ * @copyright    20/03/2004
+ * @since        15/11/2003
+ * @version      1.6
  * @author       Eric BLAS <webmaster@phphomepage.net>
  */
 
@@ -36,6 +36,11 @@ Use
 -*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 Update
 ------
+v 1.6 (20/03/2004)
+- grammatical Correction of the comentaires 
+- correction of the bug of addition of a new account for a compatibility PHP4 > = 4.1
+- automatic cleaning of the base
+- modify the links
 
 v 1.5 (11/16/2003)
 - Comment to the standard of phpdoc (http://www.phpdoc.de/)

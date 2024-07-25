@@ -1,10 +1,17 @@
 <?
-// Nom           : Php_Homepage
-// Version       : 1.4
-// Date          : 03/08/2001
-// Auteur        : Eric BLAS
-// email         : phphomepage@free.fr
-// Description   : File of Russian language
+/**
+ * [En]File of Russian language
+ *
+ * @copyright    22/03/2004
+ * @since	     03/08/2001
+ * @version      1.5
+ * @module       lang_ru
+ * @modulegroup  localisation
+ * @package      php_homepage
+ * @access	     public
+ * @author       Eric BLAS <webmaster@phphomepage.net>
+ * @author       Lord <Kox@smtp.ru>
+ */
 
 $lang_ConnexBase              = "Проблемы с базой<br>\n Попробуйте чуть позже";
 $lang_ErrorNomFichier         = "Вы обязательно должны указать имя.<br>Например:";
@@ -35,6 +42,7 @@ $lang_Place                   = " Место :";
 $lang_ChoixRubrique           = "Выберите заголовок";
 $lang_ErrorRubNom             = "Вы должны ввести имя!";
 $lang_ErrorRubPosition        = "Вы должны ввести позицию!";
+$lang_ErrorRubPositionSup     = 'You must enter a position lower than '.(($cfg_NbrLignes * $cfg_NbrColonnes) + 1).'!';
 $lang_RubOK                   = "Заголовок был создан";
 $lang_ErrorRubSupp            = "Вы должны выбрать заголовок для перемещения!";
 $lang_RubSupp                 = "Заголовок был перенесён";
@@ -45,13 +53,16 @@ $lang_ErrorLienRub            = "Вы должны создать хотя бы <B>1</B> заголовок";
 $lang_LienChoix               = "Выберите ссылку";
 $lang_LienNew                 = "Создать новую ссылку";
 $lang_LienSup                 = "Удалить ссылку";
+$lang_ModifUnLien             = 'Modify a link';
 $lang_Lien                    = "Ссылки";
 $lang_ErrorLienSup            = "Вы должны выбрать ссылку для перемещения!";
 $lang_LienSupOK               = "Ссыдка была удалена";
 $lang_LienNom                 = "Вы должны указать имя!";
 $lang_LienURL                 = "Вы должны указать ссылку!";
 $lang_LienRub                 = "Вы должны выбрать заголовок!";
+$lang_ErrorLienModif          = 'You must choose a link !';
 $lang_LienOK                  = "Ссылка успешно добавлена";
+$lang_ModifLienOK             = 'The link was modified';
 $lang_Target                  = "Открыть новое окно";
 $lang_Oui                     = "Да";
 $lang_Non                     = "Нет";

@@ -3,9 +3,9 @@
  * [fr]Fichier de mise en page de la homepage
  * [en]File of formatting of the homepage
  *
- * @copyright    23/11/2003
+ * @copyright    22/03/2004
  * @since	     09/01/2001
- * @version      1.5a
+ * @version      1.6
  * @module       liens
  * @modulegroup  include
  * @package      php_homepage
@@ -15,13 +15,95 @@
 /**
  * [fr]Gestion des diverses erreurs
  */
+if (empty($id) AND !empty($_POST['id'])) {
+    $id = $_POST['id'];
+}
+if (empty($rougeF) AND !empty($_POST['rougeF'])) {
+    $rougeF = $_POST['rougeF'];
+}
+if (empty($vertF) AND !empty($_POST['vertF'])) {
+    $vertF = $_POST['vertF'];
+}
+if (empty($bleuF) AND !empty($_POST['bleuF'])) {
+    $bleuF = $_POST['bleuF'];
+}
+if (empty($rougeR) AND !empty($_POST['rougeR'])) {
+    $rougeR = $_POST['rougeR'];
+}
+if (empty($vertR) AND !empty($_POST['vertR'])) {
+    $vertR = $_POST['vertR'];
+}
+if (empty($bleuR) AND !empty($_POST['bleuR'])) {
+    $bleuR = $_POST['bleuR'];
+}
+if (empty($rougeL) AND !empty($_POST['rougeL'])) {
+    $rougeL = $_POST['rougeL'];
+}
+if (empty($vertL) AND !empty($_POST['vertL'])) {
+    $vertL = $_POST['vertL'];
+}
+if (empty($bleuL) AND !empty($_POST['bleuL'])) {
+    $bleuL = $_POST['bleuL'];
+}
+if (empty($modif) AND !empty($_POST['modif'])) {
+    $modif = $_POST['modif'];
+}
+if (empty($taille_titre) AND !empty($_POST['taille_titre'])) {
+    $taille_titre = $_POST['taille_titre'];
+}
+if (empty($taille_lien) AND !empty($_POST['taille_lien'])) {
+    $taille_lien = $_POST['taille_lien'];
+}
+if (empty($police) AND !empty($_POST['police'])) {
+    $police = $_POST['police'];
+}
+if (empty($titre) AND !empty($_POST['titre'])) {
+    $titre = $_POST['titre'];
+}
+if (empty($target) AND !empty($_POST['target'])) {
+    $target = $_POST['target'];
+}
+
+/**
+ * [fr]Gestion des diverses erreurs
+ */
 if (empty($modif)) {
     $modif = '';
 }
-if ($mise_en_page_id != 0) {
+if ($mise_en_page_id != 0 AND $modif == 1) {
+    if (empty($rougeF) AND empty($_POST['rougeF'])) {
+        $rougeF = '00';
+    }
+    if (empty($vertF) AND empty($_POST['vertF'])) {
+        $vertF = '00';
+    }
+    if (empty($bleuF) AND empty($_POST['bleuF'])) {
+        $bleuF = '00';
+    }
+    if (empty($rougeR) AND empty($_POST['rougeR'])) {
+        $rougeR = '00';
+    }
+    if (empty($vertR) AND empty($_POST['vertR'])) {
+        $vertR = '00';
+    }
+    if (empty($bleuR) AND empty($_POST['bleuR'])) {
+        $bleuR = '00';
+    }
+    if (empty($rougeL) AND empty($_POST['rougeL'])) {
+        $rougeL = '00';
+    }
+    if (empty($vertL) AND empty($_POST['vertL'])) {
+        $vertL = '00';
+    }
+    if (empty($bleuL) AND empty($_POST['bleuL'])) {
+        $bleuL = '00';
+    }
     $fond            = $rougeF.$vertF.$bleuF;
     $couleur_titre   = $rougeR.$vertR.$bleuR;
     $couleur_lien    = $rougeL.$vertL.$bleuL;
+    if (empty($titre) AND empty($_POST['titre'])) {
+        $titre = '';
+    }
     if ($modif == "1") {
         $query3          = "UPDATE mise_en_page SET fond='".$fond."', couleur_titre='".$couleur_titre."', taille_titre='".$taille_titre."', couleur_lien='".$couleur_lien."', taille_lien='".$taille_lien."', police='".$police."', titre='".$titre."', target='".$target."' WHERE id='".$id."'";
         mysql_query ($query3);
@@ -31,6 +113,39 @@ if ($mise_en_page_id != 0) {
     }
 } else {
     if ($modif == "1") {
+        if (empty($rougeF) AND empty($_POST['rougeF'])) {
+            $rougeF = '00';
+        }
+        if (empty($vertF) AND empty($_POST['vertF'])) {
+            $vertF = '00';
+        }
+        if (empty($bleuF) AND empty($_POST['bleuF'])) {
+            $bleuF = '00';
+        }
+        if (empty($rougeR) AND empty($_POST['rougeR'])) {
+            $rougeR = '00';
+        }
+        if (empty($vertR) AND empty($_POST['vertR'])) {
+            $vertR = '00';
+        }
+        if (empty($bleuR) AND empty($_POST['bleuR'])) {
+            $bleuR = '00';
+        }
+        if (empty($rougeL) AND empty($_POST['rougeL'])) {
+            $rougeL = '00';
+        }
+        if (empty($vertL) AND empty($_POST['vertL'])) {
+            $vertL = '00';
+        }
+        if (empty($bleuL) AND empty($_POST['bleuL'])) {
+            $bleuL = '00';
+        }
+        $fond            = $rougeF.$vertF.$bleuF;
+        $couleur_titre   = $rougeR.$vertR.$bleuR;
+        $couleur_lien    = $rougeL.$vertL.$bleuL;
+        if (empty($titre) AND empty($_POST['titre'])) {
+            $titre = '';
+        }
         $query5          = "INSERT INTO mise_en_page VALUES('','".$fond."','".$couleur_titre."','".$taille_titre."','".$couleur_lien."','".$taille_lien."','".$police."','".$titre."','".$target."')";
         mysql_query ($query5);
         $mise_en_page_id = mysql_insert_id();
@@ -95,9 +210,9 @@ if (!empty($rougeF)) {
  * [fr]Affichage des divers paramètres modifiables
  */
 if ($mise_en_page_id != 0 AND $modif == 2) {
-    echo '                    '.$cfg_font_1_r.'<b>'.$lang_ModifOK.'</b>'.$cfg_font_fin.'<br>'."\n";
+    echo '                    '.$cfg_font_1_v.'<b>'.$lang_ModifOK.'</b>'.$cfg_font_fin.'<br>'."\n";
 } elseif ($mise_en_page_id != 0 AND $modif == 1) {
-    echo '                    '.$cfg_font_1_r.'<b>'.$lang_CreerOK.'</b>'.$cfg_font_fin.'<br>'."\n";
+    echo '                    '.$cfg_font_1_v.'<b>'.$lang_CreerOK.'</b>'.$cfg_font_fin.'<br>'."\n";
 }
 echo '                    '.$cfg_font_3_n.'<b>'.$lang_MiseEnPage.'</b>'.$cfg_font_fin.'<br>'."\n";
 echo '                    <form method="post" action="'.$_SERVER['PHP_SELF'].'" name="mise_en_page">'."\n";
@@ -308,7 +423,7 @@ echo '                    <table width="200px" border="1" cellspacing="0" cellpa
 echo '                        <tr>'."\n";
 echo '                            <td bgcolor="#'.$fond.'">'."\n";
 echo '                                <p><br>&nbsp;&nbsp;'.$font_rubrique.'<b>'.$lang_Rubrique.'</b>'.$cfg_font_fin."</p>\n";
-echo '                                <p>&nbsp;&nbsp;<a href="#">'.$font_lien.'<b>'.$lang_Lien.'</b>'.$cfg_font_fin."</a></p>\n";
+echo '                                <p>&nbsp;&nbsp;<a href="#">'.$font_lien.$lang_Lien.$cfg_font_fin."</a></p>\n";
 echo '                            </td>'."\n";
 echo '                        </tr>'."\n";
 echo '                    </table><br>'."\n";

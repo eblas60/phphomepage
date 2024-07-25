@@ -15,7 +15,7 @@ $req = mysql_list_tables ($cfgBase );
 $tables = mysql_num_rows ($req);
 
 if ($tables == 0 )
- {$file = "homepage.sql";
+ {$file = $cfgInclude."homepage.sql";
   require($cfgInclude."create_table.inc.php3");
  }
 ?>

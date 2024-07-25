@@ -1,7 +1,7 @@
 <?
 // Nom           : Php_Homepage
-// Version       : 1.4
-// Date          : 03/08/2001
+// Version       : 1.4.a
+// Date          : 20/11/2001
 // Auteur        : Eric BLAS
 // email         : phphomepage@free.fr
 // Description   : Fichier de configuration / File configuration
@@ -10,8 +10,8 @@
 // MySQL
 
 $cfgHost = 'localhost';               // Host MySQL
-$cfgUser = 'login';               // User MySQL
-$cfgPass = 'pass';               // Pass MySQL
+$cfgUser = 'User';               // User MySQL
+$cfgPass = 'Password';               // Pass MySQL
 $cfgBase = 'php_homepage';               // Base MySQL
 
 // Langues / Language
@@ -20,7 +20,7 @@ $cfgLangue = 'fr'; // Choix de la langue français
 
 // Environnement
 // Environment
-$cfgVersion     = "Php_Homepage 1.4";
+$cfgVersion     = "Php_Homepage 1.4.a";
 
 // Couleur de fond de cellule pour les tableaux
 // Background color of cell for the table

@@ -1,13 +1,22 @@
 <?
 // Nom : Php_Homepage
-// Version : 1.1
-// Date : 09/01/2001
+// Version : 1.2
+// Date : 10/01/2001
 // Auteur : Eric BLAS
 // email : ericb@newsinvest.fr
 // Description : Fichier d'identification
 
 require("config.inc.php3");
 require("lang_$cfgLang.inc.php3");
+
+// creation des tables dans la base
+$req = mysql_list_tables ($cfgBase );
+$tables = mysql_num_rows ($req);
+
+if ($tables == 0 )
+ {$file = "homepage.sql";
+  require("create_table.inc.php3");
+ }
 ?>
  <html>
  <head>
@@ -32,8 +41,5 @@ require("lang_$cfgLang.inc.php3");
  </table>
  <br>
  <br>
- <? // ligne à mettre en commentaire une fois les tables crée
-    // Put the ligne in commentary when you have created tables
- print "<p>$cfgfont_1_n <a href=\"create_table.php3\">$langGenereTable</a> $cfgfont_fin</p>"?>
  </body>
  </html>

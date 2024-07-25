@@ -1,14 +1,17 @@
 <?
-// Nom : Php_Homepage
-// Version : 1.3
-// Date : 11/01/2001
-// Auteur : Eric BLAS
-// email : ericb@newsinvest.fr
-// Description : Votre homepage
-//               Your homepage
+// Nom           : Php_Homepage
+// Version       : 1.4
+// Date          : 03/08/2001
+// Auteur        : Eric BLAS
+// email         : phphomepage@free.fr
+// Description   : Votre homepage
+//                 Your homepage
 
-require("./config.inc.php3");
-require("./lang_$cfgLang.inc.php3");
+require("local.inc.php3");
+include ($cfgInclude."config.inc.php3");
+include ($cfgInclude."connect.inc.php3");
+include ($cfgInclude."lib.inc.php3"); 
+include ($cfgInclude."localisation/lang_".$cfgLangue.".inc.php3");
 
 $query1          = "SELECT * FROM homepage WHERE nom = '$homepage'";
 $req1            = mysql_query ($query1);
@@ -39,50 +42,6 @@ $font_lien       = "<font face=\"$police\" size=\"$taille_lien\" color=\"#$coule
  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
  </head>
  <body bgcolor="#<?print $fond?>" link="#<?print $couleur_lien?>" vlink="#<?print $couleur_lien?>" alink="#<?print $couleur_lien?>">
-<?
-function create_case($case)
- {GLOBAL $homepage;
-  GLOBAL $cfgBase;
-  GLOBAL $font_rubrique;
-  GLOBAL $font_lien;
-  GLOBAL $cfgfont_fin;
-  GLOBAL $target;
-  $query3       = "SELECT * FROM homepage WHERE nom = '$homepage'";
-  $req3         = mysql_db_query ($cfgBase,$query3);
-  $rubriques_id = mysql_result($req3,0,"rubriques_id");
-  $rubrique     = explode ("-",$rubriques_id);
-  $i            = 0;
-  WHILE($i<count($rubrique))
-   {$query4       = "SELECT * FROM rubriques WHERE id = $rubrique[$i] AND actif = '' AND position = '$case' ORDER BY titre";
-    $req4         = mysql_db_query ($cfgBase,$query4);
-    $res4         = mysql_numrows($req4);
-    if ($res4 !=0)
-     {$nom_rubrique = mysql_result($req4,0,"titre");
-      print "<p> $font_rubrique <b>$nom_rubrique</b> $cfgfont_fin</p>\n";
-      $query5       = "SELECT * FROM liens WHERE rubrique_id = '$rubrique[$i]' ORDER BY titre";
-      $req5         = mysql_db_query ($cfgBase,$query5);
-      $res5         = mysql_numrows($req5);
-      $j            = 0;
-      WHILE($res5 != $j)
-       {$nom_lien     = mysql_result($req5,$j,"titre");
-        $url          = mysql_result($req5,$j,"url");
-        $actif        = mysql_result($req5,$j,"actif");
-        if ($actif != 1)
-         {if ($target != 1)
-           {print "$font_lien<a href=\"$url\" target=\"_blank\">$nom_lien</a>$cfgfont_fin<br>\n";
-           }
-          else
-           {print "$font_lien<a href=\"$url\" target=\"_self\">$nom_lien</a>$cfgfont_fin<br>\n";
-           }
-         }
-        $j++;
-       };
-     }
-    $i++;
-   };
-  print "<br>";
- }
-?>
  <table width="100%" border="0" cellspacing="5" cellpadding="0">
 <?$k = 0;
   WHILE($cfgNbrLignes != $k)
@@ -104,5 +63,4 @@ function create_case($case)
  </table>
  <br>
  <div align="right"><font face="<? print $police?>" color="#<? print $couleur_titre?>" size="1"><?print "$homepage - $langRealiser $cfgVersion $cfgfont_fin";?></div>
- </body>
- </html>
+<? require($cfgInclude."stop_html.inc.php3") ?>

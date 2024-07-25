@@ -5,6 +5,11 @@
  * # Fix
  */
 
+09-aout-2001 : v1.4
+ ^ Restructuration de phphomepage (apparition du dossier localisation)
+ ^ Amélioration du codage
+ # Meilleur intégration de la langue
+
 11-janvier-2001 : v1.3
  + Inclusion du fichier anglais
  # Correction de quelques bugs

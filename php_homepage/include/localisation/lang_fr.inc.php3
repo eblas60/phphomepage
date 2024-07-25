@@ -1,12 +1,12 @@
 <?
-// Nom : Php_Homepage
-// Version : 1.3
-// Date : 11/01/2001
-// Auteur : Eric BLAS
-// email : ericb@newsinvest.fr
+// Nom         : Php_Homepage
+// Version     : 1.4
+// Date        : 03/08/2001
+// Auteur      : Eric BLAS
+// email       : phphomepage@free.fr 
 // Description : Fichier de langue francaise
-?>
-<?
+
+$langConnexBase              = "Problème avec la base de données <br>\n Veuillez essayer plus tard.";
 $langErrorNomFichier         = "Il faut donner un nom de fichier.<br>Par exemple :";
 $langFichier                 = "Le fichier";
 $langIntrouvable             = "est introuvable.";

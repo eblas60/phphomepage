@@ -1,23 +1,12 @@
 <?
-// Nom : Php_Homepage
-// Version : 1.3
-// Date : 11/01/2001
-// Auteur : Eric BLAS
-// email : ericb@newsinvest.fr
-// Description : Fichier de mise en page de la homepage
-//               File of formatting of the homepage
+// Nom           : Php_Homepage
+// Version       : 1.4
+// Date          : 03/08/2001
+// Auteur        : Eric BLAS
+// email         : phphomepage@free.fr
+// Description   : Fichier de mise en page de la homepage
+//                 File of formatting of the homepage
 
-require("./config.inc.php3");
-require("./lang_$cfgLang.inc.php3");
-?>
- <html>
- <head>
- <title>
-<?print $cfgVersion;?>
- </title>
- <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
- </head>
-<?
 $query1          = "SELECT * FROM homepage WHERE nom = '$homepage'";
 $req1            = mysql_query ($query1);
 $res1            = mysql_numrows($req1);
@@ -69,23 +58,10 @@ else
   $police          = "Verdana";
   $target          = "1";
  }
-$font_rubrique   = "<font face=\"$police\" size=\"$taille_titre\" color=\"#$couleur_titre\">";
-$font_lien       = "<font face=\"$police\" size=\"$taille_lien\">";
-?>
-<?function eclat_couleur($couleur,$ident)
-   {GLOBAL $cfgFormulaire;
-    $couleur1          = substr ("$couleur", 0, 2);
-    $couleur2          = substr ("$couleur", 2, 2);
-    $couleur3          = substr ("$couleur", 4, 2);
-    print "<input type=\"text\" $cfgFormulaire name=\"rouge$ident\" size=\"2\" maxlength=\"2\" value=\"$couleur1\">
-           -
-           <input type=\"text\" $cfgFormulaire name=\"vert$ident\" size=\"2\" maxlength=\"2\" value=\"$couleur2\">
-           -
-           <input type=\"text\" $cfgFormulaire name=\"bleu$ident\" size=\"2\" maxlength=\"2\"  value=\"$couleur3\">";
-   }
-?>
- <body bgcolor="#<?print $cfgFondIndex?>" link="#<?print $couleur_lien?>" vlink="#<?print $couleur_lien?>" alink="#<?print $couleur_lien?>">
-   <?if ($mise_en_page_id != 0 AND $modif == 2)
+$font_rubrique   = "<font face=\"".$police."\" size=\"".$taille_titre."\" color=\"#".$couleur_titre."\">";
+$font_lien       = "<font face=\"".$police."\" size=\"".$taille_lien."\" color=\"#".$couleur_lien."\">";
+
+if ($mise_en_page_id != 0 AND $modif == 2)
    {print "$cfgfont_1_r <b>$langModifOK</b> $cfgfont_fin <br>";
    }
   elseif ($mise_en_page_id != 0 AND $modif == 1)
@@ -93,7 +69,7 @@ $font_lien       = "<font face=\"$police\" size=\"$taille_lien\">";
    }
 ?>
 <?print "$cfgfont_3_n <b>$langMiseEnPage</b> $cfgfont_fin"?>
- <form method="post" action="mise_en_page.php3" name="mise_en_page">
+ <form method="post" action="php_homepage.php3" name="mise_en_page">
   <?print "$cfgfont_2_n $langCreerMEP $cfgfont_fin";?><br>
   <?
   if ($mise_en_page_id != 0)
@@ -104,6 +80,7 @@ $font_lien       = "<font face=\"$police\" size=\"$taille_lien\">";
      }
   ?>
   <input type="hidden" name="homepage" value="<? print $homepage ?>">
+  <input type="hidden" name="page" value="<? print $page ?>">
   <input type="hidden" name="modif" value="1">
   <table width="75%" border="0" cellspacing="0" cellpadding="0">
     <tr>
@@ -199,14 +176,12 @@ $font_lien       = "<font face=\"$police\" size=\"$taille_lien\">";
   ?>
   </form>
   <br>
-  <table width="150px" border="1" cellspacing="0" cellpadding="0">
+  <table width="150px" border="1" cellspacing="0" cellpadding="10">
    <tr>
     <td bgcolor="#<?print $fond?>">
-<?  print "<p> $font_rubrique <br><b>&nbsp;&nbsp;Rubrique</b> $cfgfont_fin</p>\n";
-    print "<p> $font_lien &nbsp;&nbsp;<a href=\"#\"><b>lien</b></a> $cfgfont_fin</p><br>\n";
+<?  print "<p><br>&nbsp;&nbsp;".$font_rubrique."<b>".$langRubrique."</b>".$cfgfont_fin."</p>\n";
+    print "<p>&nbsp;&nbsp;<a href=\"#\">".$font_lien."<b>".$langLien."</b>".$cfgfont_fin."</a></p><br>\n";
 ?>
     </td>
    </tr>
   </table>
- </body>
- </html>

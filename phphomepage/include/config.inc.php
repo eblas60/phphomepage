@@ -5,7 +5,7 @@
  *
  * @copyright	11/06/2021
  * @since		09/01/2001
- * @version		1.9
+ * @version		1.10
  * @module		homepage
  * @modulegroup	homepage
  * @package		php_homepage
@@ -34,7 +34,7 @@ else
 
 // Environnement
 // Environment
-$cfg_Version     = 'Php Homepage v1.9';
+$cfg_Version     = 'Php Homepage v1.10';
 
 // balise de fermeture
 // closing balise
